@@ -4,6 +4,43 @@
 
 Dieser Workflow beschreibt den vollständigen Prozess von der Bug-Meldung bis zur Lösung. Der Bug selbst ist ein strukturiertes Formular, das durch verschiedene Phasen und Verantwortliche bearbeitet wird.
 
+## 📁 Bug-Report Struktur
+
+### Verzeichnis-Struktur
+- **Bug-Reports werden ausschließlich im Verzeichnis `/bug-reports` abgelegt**
+- **Keine Ablage an anderen Orten erlaubt**
+
+### Dateinamen-Konvention
+- **Format**: `yyyy/mm-dd_hh:mm_<max 32 Zeichen>.md`
+- **Beispiel**: `2024/01-15_14:30_ui-beschreibungsfeld-problem.md`
+- **Regeln**:
+  - Jahr als Verzeichnis: `yyyy/`
+  - Monat-Tag im Format `mm-dd`
+  - Uhrzeit im Format `hh:mm` (24h)
+  - Kurze, beschreibende Bezeichnung (max. 32 Zeichen)
+  - Dateiendung `.md`
+
+### Template-Struktur
+- **Bug-Report Templates werden im `/bug-reports/templates` Verzeichnis abgelegt**
+- **Template-Dateien beginnen mit `template_`**
+- **Beispiel**: `templates/template_bug-report-standard.md`
+
+### Verzeichnis-Organisation
+```
+/bug-reports/
+├── templates/
+│   ├── template_bug-report-standard.md
+│   └── template_bug-report-critical.md
+├── 2024/
+│   ├── 01-15_14:30_ui-beschreibungsfeld-problem.md
+│   ├── 01-16_09:15_login-fehlermeldung.md
+│   └── 02-03_11:45_database-connection-error.md
+├── 2025/
+│   ├── 07-14_19:44_ui-beschreibungsfeld-problem.md
+│   └── 07-15_10:30_api-timeout-issue.md
+└── ...
+```
+
 ## 🚨 Severity & Priorität
 
 ### Severity (Schweregrad)
@@ -47,24 +84,76 @@ Dieser Workflow beschreibt den vollständigen Prozess von der Bug-Meldung bis zu
 ## 📋 Workflow Phasen
 
 ### Phase 1: Meldung
+**WICHTIG**: Der Melder MUSS durch strukturierte Fragen angeleitet werden!
+
+**Anleitung für den Melder**:
+1. **Begrüßung und Einleitung**: "Ich helfe Ihnen gerne bei der Erstellung eines Bug-Reports. Dafür benötige ich einige wichtige Informationen von Ihnen."
+
+2. **Systematische Befragung**:
+   - "In welcher Version der Anwendung tritt das Problem auf?"
+   - "In welcher Umgebung haben Sie das Problem beobachtet? (DEV/TEST/REF/PROD)"
+   - "Können Sie mir Ihren Namen und Ihre Rolle nennen?"
+   - "Beschreiben Sie bitte, was Sie erlebt haben, als das Problem aufgetreten ist."
+   - "Was sollte normalerweise passieren?"
+   - "Was passiert tatsächlich stattdessen?"
+   - "Welchem Geschäftsbereich gehören Sie an? (Administration, Entwicklung, Fachanwender, Support)"
+   - "Sind interne oder externe Kunden von diesem Problem betroffen?"
+
+3. **Optionale Ergänzungen**:
+   - "Haben Sie Screenshots oder Logs, die das Problem zeigen?"
+   - "Wie oft tritt das Problem auf? (Immer/Oft/Selten/Nur einmal)"
+   - "Welchen Browser/System verwenden Sie?"
+
+4. **Abschluss**: "Vielen Dank! Ich erstelle jetzt einen vollständigen Bug-Report mit Ihren Informationen."
+
+**Falls Melder Informationen verweigert**:
+- **Version**: "Ich setze 'Unbekannt' ein, aber das erschwert die Bearbeitung erheblich."
+- **Umgebung**: "Ich schätze basierend auf der Beschreibung: [DEV/TEST/REF/PROD]"
+- **Name/Rolle**: "Ich setze 'Anonym' ein."
+- **Geschäftsbereich**: "Basierend auf dem Problem schätze ich: [Bereich]"
+- **Betroffene Kunden**: "Basierend auf der Beschreibung schätze ich: [Interne/Externe]"
+
+**DOKUMENTATION**: Alle Schätzungen und Annahmen müssen im Bug-Report dokumentiert werden!
+
+**Qualitätskontrolle vor Abgabe**:
+- ✅ **Alle Pflichtfelder ausgefüllt?**
+- ✅ **Version angegeben?** (Falls nicht: "Unbekannt" + Begründung)
+- ✅ **Umgebung angegeben?** (Falls nicht: Schätzung + Begründung)
+- ✅ **Melder angegeben?** (Falls nicht: "Anonym" + Begründung)
+- ✅ **Fehlerbeschreibung vorhanden?** (MUSS vorhanden sein!)
+- ✅ **Erwartetes vs. Aktuelles Verhalten beschrieben?** (MUSS vorhanden sein!)
+- ✅ **Geschäftsbereich angegeben?** (Falls nicht: Schätzung + Begründung)
+- ✅ **Betroffene Kunden angegeben?** (Falls nicht: Schätzung + Begründung)
+
+**Falls Pflichtfelder fehlen**: Bug-Report NICHT abgeben, sondern weitere Fragen stellen!
 **Verantwortlich**: Nutzer, Tester, Support
 
 **Ziel**: Strukturierte Erfassung des Problems
 
 **Aktivitäten**:
 - Bug-Formular ausfüllen
-- Alle Pflichtfelder vervollständigen
+- **ALLE Pflichtfelder erfragen und vervollständigen** (siehe Pflichtfelder-Checkliste)
 - Anhänge (Screenshots, Logs) hinzufügen
+- Bug-Report im `/bug-reports` Verzeichnis mit korrektem Dateinamen ablegen
 - Bug-Report an das Entwicklungsteam übermitteln
 
-**Bug-Formular Felder**:
-- **Gemeldet für Version**: [Version, in der der Bug auftritt]
-- **Gemeldet für Umgebung**: [DEV/TEST/REF/PROD]
-- **Fehlerbeschreibung aus Nutzersicht**: [Was erlebt der Nutzer?]
-- **Erwartetes Verhalten**: [Was sollte normalerweise passieren?]
-- **Aktuelles Verhalten**: [Was passiert tatsächlich?]
-- **Geschäftsbereich**: [Administration, Entwicklung, Fachanwender, Support]
-- **Betroffene Kunden**: [Interne/Externe]
+**WICHTIG**: Kein Bug-Report ohne vollständige Pflichtfelder!
+
+**Pflichtfelder-Checkliste (MÜSSEN ausgefüllt werden)**:
+- ✅ **Version**: [Version, in der der Bug auftritt] - ERFRAGEN!
+- ✅ **Umgebung**: [DEV/TEST/REF/PROD] - ERFRAGEN!
+- ✅ **Gemeldet von**: [Name/Rolle] - ERFRAGEN!
+- ✅ **Datum**: [Datum der Meldung] - AUTOMATISCH SETZEN
+- ✅ **Fehlerbeschreibung aus Nutzersicht**: [Was erlebt der Nutzer?] - ERFRAGEN!
+- ✅ **Erwartetes Verhalten**: [Was sollte normalerweise passieren?] - ERFRAGEN!
+- ✅ **Aktuelles Verhalten**: [Was passiert tatsächlich?] - ERFRAGEN!
+- ✅ **Geschäftsbereich**: [Administration, Entwicklung, Fachanwender, Support] - ERFRAGEN!
+- ✅ **Betroffene Kunden**: [Interne/Externe] - ERFRAGEN!
+
+**Optionale Felder**:
+- **Anhänge**: [Screenshots, Logs] - ERFRAGEN
+- **Häufigkeit**: [Immer/Oft/Selten/Nur einmal] - ERFRAGEN
+- **Browser/System**: [Falls relevant] - ERFRAGEN
 
 **Markdown-Fragment (Issue-Beschreibung)**:
 ```markdown
@@ -478,7 +567,12 @@ Jede Phase erzeugt ein Markdown-Fragment, das direkt in das Issue-System kopiert
 - **GitLab Issues**: Fragmente als Markdown-Kommentare
 - **Andere Systeme**: Anpassung an spezifische Formate
 
-## 🛠️ Bug-Formular Template
+## 🛠️ Bug-Formular Templates
+
+### Template-Verfügbarkeit
+- **Standard Template**: `/bug-reports/templates/template_bug-report-standard.md`
+- **Kritische Bugs**: `/bug-reports/templates/template_bug-report-critical.md`
+- **Dateinamen-Konvention**: `yyyy/mm-dd_hh:mm_<max 32 Zeichen>.md`
 
 ### Phase 1: Meldung
 - **Version**: [Version]
