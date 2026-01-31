@@ -1,4 +1,4 @@
-product-backlog.md# Prompt-Bibliothek
+# Prompt-Bibliothek
 
 Diese Bibliothek enthält strukturierte Prompts für verschiedene Anwendungsfälle.
 
@@ -8,8 +8,19 @@ Diese Bibliothek enthält strukturierte Prompts für verschiedene Anwendungsfäl
 /prompt/
 ├── README.md                    # Diese Datei
 ├── _koordinator.md              # Hauptrolle: Koordinator aller Rollen
-└── rollen/
-    └── prompt-coach.md          # Rolle: Prompt-Coach
+├── rollen/                      # Rollen-Prompts
+│   ├── prompt-coach.md          # Prompt-Coach
+│   ├── product-owner.md         # Product Owner
+│   ├── software-architect.md    # Softwarearchitekt
+│   ├── dev-team.md              # Dev-Team
+│   ├── operations.md            # Operativer Betrieb
+│   └── clean-code-coach.md      # Clean Code Coach
+└── artefakte/                    # Artefakte und Vorlagen
+    ├── architecture-decision-record.md
+    ├── architektur_arc42.md
+    ├── java-projekt-struktur.md
+    ├── nutzerhandbuch.md
+    └── systemhandbuch.md
 ```
 
 ## 🎯 Verwendung
@@ -34,14 +45,62 @@ Der `_koordinator.md` ist die Hauptrolle, die alle anderen Rollen koordiniert.
 🔄 Ich agiere nun in der Rolle: prompt-coach
 ```
 
+### Verfügbare Rollen
+
+#### Prompt-Coach (`rollen/prompt-coach.md`)
+- Entwicklung, Bewertung und Verbesserung von Prompts
+- Strukturierung nach W-Fragen-Systematik
+- Qualitätsprüfung und Kompaktheits-Check
+
+#### Product Owner (`rollen/product-owner.md`)
+- Visionen entwickeln und Ideen sammeln
+- Product Backlog verwalten und priorisieren
+- User Stories erstellen und strukturieren
+- Anforderungen aus Visionen ableiten
+
+#### Softwarearchitekt (`rollen/software-architect.md`)
+- Architektur nach Arc42 strukturieren und dokumentieren
+- Software Requirements Specifications (SRS) erstellen
+- Architecture Decision Records (ADR) dokumentieren
+- Technische Konsistenz und Qualität sicherstellen
+
+#### Dev-Team (`rollen/dev-team.md`)
+- Code-Entwicklung nach Architektur-Vorgaben
+- Strukturierte Code-Dokumentation
+- Pull Request-Prüfbarkeit sicherstellen
+- Benutzerhandbuch pflegen
+
+#### Operativer Betrieb (`rollen/operations.md`)
+- Betrieb überwachen und steuern
+- Störungen frühzeitig erkennen
+- Probleme systematisch analysieren
+- Operationen (Start/Stop/Rollout) durchführen
+
+#### Clean Code Coach (`rollen/clean-code-coach.md`)
+- Code analysieren und Verbesserungspotenziale identifizieren
+- Clean Code Prinzipien vermitteln (SOLID, DRY, KISS, etc.)
+- Code-Reviews durchführen und Feedback geben
+- Refactoring-Strategien vorschlagen
+
 ### Einzelne Rollen verwenden
 
 Du kannst auch einzelne Rollen direkt verwenden:
 
-**Prompt-Coach:**
-1. Den kompletten Inhalt von `rollen/prompt-coach.md` kopieren
+1. Den kompletten Inhalt der gewünschten Rolle aus `rollen/[rolle].md` kopieren
 2. Als Startprompt in die KI-Session einfügen
 3. Die KI arbeitet dann nach den definierten Regeln und Strukturen
+
+## 📋 Artefakte
+
+Das Verzeichnis `artefakte/` enthält Vorlagen und Strukturen für verschiedene Dokumentations-Artefakte:
+
+- **architecture-decision-record.md**: Vorlage für Architecture Decision Records (ADR)
+- **architektur_arc42.md**: Struktur für Arc42-Architektur-Dokumentation
+- **java-projekt-struktur.md**: Struktur für Java-Projekte
+- **nutzerhandbuch.md**: Vorlage für Benutzerhandbücher
+- **systemhandbuch.md**: Vorlage für Systemhandbücher
+
+Diese Artefakte können als Vorlagen verwendet oder als Referenz für die Dokumentationsstruktur dienen.
 
 ## 📝 Prompt-Entwicklung
 
@@ -73,9 +132,9 @@ Neue Prompts können hinzugefügt werden:
 - Klare, beschreibende Dateinamen verwenden
 - Strukturierte Formatierung (Markdown)
 - Dokumentation der Verwendung im README ergänzen
+- Bei neuen Rollen: Koordinator aktualisieren
 
 ## 📚 Weitere Ressourcen
 
 - [Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
 - [Best Practices für Prompts](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api)
-
