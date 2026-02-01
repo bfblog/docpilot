@@ -1,12 +1,44 @@
-# Systemhandbuch / Systembeschreibung - Aufbau und Struktur
+---
+typ: artefakt
+name: Systemhandbuch
+kontext: Template zur Erstellung eines Systemhandbuchs für operative Dokumentation
+rollen:
+  - Operations
+  - Support
+  - DevOps
+artefakte:
+  - arc42 Architekturdokumentation
+workflows: []
+---
+
+# Artefakt: Systemhandbuch
 
 ## Über Systemhandbücher
 
-Ein **Systemhandbuch** (auch Systembeschreibung oder Operations Manual) ist eine operative Dokumentation für IT-Softwaresysteme, die den Aufbau, die Funktionsweise und die Zusammenhänge eines Systems beschreibt. Es ermöglicht dem operativen Personal (Operations, Support, DevOps, Systemadministratoren), das System zu verstehen, zu betreiben und grundlegende Fehleranalysen durchzuführen.
+Dieser Abschnitt beschreibt, was ein Systemhandbuch ist und wie es sich von anderen Dokumentationen unterscheidet.
+
+Ein **Systemhandbuch** (Synonyme: Systembeschreibung, Operations Manual) ist eine operative Dokumentation für IT-Softwaresysteme, die den Aufbau, die Funktionsweise und die Zusammenhänge eines Systems beschreibt. Das Systemhandbuch ermöglicht dem operativen Personal (Operations, Support, DevOps, Systemadministratoren), das System zu verstehen, zu betreiben und grundlegende Fehleranalysen durchzuführen.
 
 **Unterschied zu Architekturdokumentation:**
-- **Architekturdokumentation (z.B. arc42):** Fokus auf "Warum" und Design-Entscheidungen, Zielgruppe: Entwickler, Architekten
-- **Systemhandbuch:** Fokus auf "Wie funktioniert es" und "Was passiert bei X", Zielgruppe: Operative, Support, Betrieb
+- **Architekturdokumentation (z.B. arc42):** Die arc42 Architekturdokumentation fokussiert auf "Warum" und Design-Entscheidungen. Die Zielgruppe der arc42 Architekturdokumentation sind Entwickler und Architekten.
+- **Systemhandbuch:** Das Systemhandbuch fokussiert auf "Wie funktioniert es" und "Was passiert bei X". Die Zielgruppe des Systemhandbuchs sind Operative, Support und Betrieb.
+
+**Beziehung zu arc42 Architekturdokumentation:**
+Das Systemhandbuch nutzt Informationen aus der arc42 Architekturdokumentation und stellt sie aus operativer Sicht dar:
+
+- **Systemhandbuch Kapitel 2 (Systemarchitektur)** → basiert auf **arc42 Kapitel 5 (Bausteinsicht)**
+  - Systemhandbuch zeigt operative Sicht der Komponenten, arc42 zeigt Design-Entscheidungen
+
+- **Systemhandbuch Kapitel 2.3 (Deployment-Architektur)** → basiert auf **arc42 Kapitel 7 (Verteilungssicht)**
+  - Systemhandbuch zeigt operative Deployment-Details, arc42 zeigt architektonische Verteilungsentscheidungen
+
+- **Systemhandbuch Kapitel 4 (Datenflüsse und Kommunikation)** → basiert auf **arc42 Kapitel 6 (Laufzeitsicht)**
+  - Systemhandbuch zeigt operative Datenflüsse, arc42 zeigt architektonische Laufzeitszenarien
+
+- **Systemhandbuch Kapitel 6 (Schnittstellen und externe Systeme)** → basiert auf **arc42 Kapitel 3 (Kontextabgrenzung)** und **arc42 Kapitel 5 (Schnittstellenbeschreibung)**
+  - Systemhandbuch zeigt operative Schnittstellen-Details, arc42 zeigt architektonische Schnittstellen-Entscheidungen
+
+**Wichtig:** Das Systemhandbuch beschreibt "Wie funktioniert es?", die arc42 Architekturdokumentation beschreibt "Warum ist es so?". Beide ergänzen sich und sollten konsistent sein.
 
 **Kernprinzipien:**
 - Praktisch und anwendungsorientiert
@@ -17,7 +49,9 @@ Ein **Systemhandbuch** (auch Systembeschreibung oder Operations Manual) ist eine
 
 ---
 
-## Zielgruppe und Zweck
+## Zielgruppe und Zweck des Systemhandbuchs
+
+Dieser Abschnitt beschreibt, für wen das Systemhandbuch gedacht ist und welchen Zweck es erfüllt.
 
 ### Zielgruppe
 
@@ -59,6 +93,8 @@ Ein **Systemhandbuch** (auch Systembeschreibung oder Operations Manual) ist eine
 
 ## Aufbau des Systemhandbuchs
 
+Dieser Abschnitt beschreibt die Struktur des Systemhandbuchs und die Übersicht der Kapitel.
+
 ### Übersicht der Kapitel
 
 1. **Einführung und Übersicht**
@@ -75,7 +111,63 @@ Ein **Systemhandbuch** (auch Systembeschreibung oder Operations Manual) ist eine
 
 ---
 
+## Quick Reference (Notfall)
+
+**Wichtig:** Dieser Abschnitt ist für schnelle Hilfe im Notfall gedacht. Für detaillierte Informationen zu Fehleranalyse siehe Kapitel 8 (Fehleranalyse und Troubleshooting) in diesem Systemhandbuch. Für detaillierte Informationen zu Systemstart siehe Kapitel 7.1 (Systemstart und -stopp) in diesem Systemhandbuch.
+
+### Häufige Fehler und schnelle Lösungen
+
+| Symptom | Mögliche Ursache | Schnelle Lösung | Detaillierte Hilfe |
+|---------|------------------|-----------------|-------------------|
+| System antwortet nicht | Service down | Service starten | Kapitel 7.1 (Systemstart) |
+| Database Connection Error | Database nicht erreichbar | Database prüfen, Service neu starten | Kapitel 8.2.3 (Database-Probleme) |
+| High CPU Usage | Performance-Problem | Log-Analyse, Service neu starten | Kapitel 8.2.2 (Performance-Probleme) |
+| High Memory Usage | Memory-Leak | Service neu starten, Memory prüfen | Kapitel 8.2.2 (Performance-Probleme) |
+| Service nicht erreichbar | Service down, Netzwerk-Problem | Service starten, Netzwerk prüfen | Kapitel 8.2.1 (Service-Fehler) |
+| Alert: Critical | System-Fehler | Fehleranalyse starten | Kapitel 8.1 (Fehleranalyse-Methodik) |
+
+### Notfall-Kontakte
+
+| Rolle | Name | Kontakt | Verfügbarkeit |
+|-------|------|---------|----------------|
+| On-Call Engineer | [Name] | [Telefon/Email] | 24/7 |
+| System Owner | [Name] | [Telefon/Email] | [Zeiten] |
+| Tech Lead | [Name] | [Telefon/Email] | [Zeiten] |
+| Support | [Name] | [Telefon/Email] | [Zeiten] |
+
+**Hinweis:** Kontakte sollten in Kapitel 11.4 (Kontakte) detailliert dokumentiert werden.
+
+### Symptom-Index
+
+**System antwortet nicht:**
+- Service-Probleme werden in Kapitel 8.2.1 (Service nicht erreichbar) behandelt.
+- Systemstart-Prozeduren werden in Kapitel 7.1 (Systemstart und -stopp) beschrieben.
+
+**Database Connection Error:**
+- Database-Probleme werden in Kapitel 8.2.3 (Database-Probleme) behandelt.
+- Externe Abhängigkeiten werden in Kapitel 6.3 (Externe Abhängigkeiten) beschrieben.
+
+**Performance-Probleme (CPU/Memory):**
+- Performance-Probleme werden in Kapitel 8.2.2 (Performance-Probleme) behandelt.
+- Monitoring wird in Kapitel 7.2 (Monitoring und Metriken) beschrieben.
+
+**Alert: Critical:**
+- Alerting wird in Kapitel 7.3 (Alerting) beschrieben.
+- Fehleranalyse-Methodik wird in Kapitel 8.1 (Fehleranalyse-Methodik) behandelt.
+
+**Service nicht erreichbar:**
+- Service-Fehler werden in Kapitel 8.2.1 (Service-Fehler) behandelt.
+- Systemstart-Prozeduren werden in Kapitel 7.1 (Systemstart und -stopp) beschrieben.
+
+**Network-Problem:**
+- Netzwerk-Probleme werden in Kapitel 8.2.4 (Netzwerk-Probleme) behandelt.
+- Schnittstellen und externe Systeme werden in Kapitel 6 (Schnittstellen und externe Systeme) beschrieben.
+
+---
+
 ## 1. Einführung und Übersicht
+
+Dieses Kapitel des Systemhandbuchs beschreibt den Zweck des Dokuments, den Geltungsbereich, die Systemübersicht und Konventionen.
 
 ### 1.1 Zweck des Dokuments
 
@@ -102,9 +194,9 @@ Nach dem Studium dieses Handbuchs können Sie:
 - Häufige Probleme identifizieren und beheben
 
 Nicht Gegenstand dieses Handbuchs:
-- Entwicklerdokumentation (siehe [Link])
-- Architekturdokumentation (siehe [Link])
-- Benutzerhandbuch (siehe [Link])
+- Entwicklerdokumentation wird in [Link] beschrieben.
+- Architekturdokumentation wird in [Link] beschrieben. Die arc42 Architekturdokumentation beschreibt "Warum", das Systemhandbuch beschreibt "Wie".
+- Benutzerhandbuch wird in [Link] beschrieben.
 ```
 
 ### 1.2 Geltungsbereich
@@ -194,7 +286,7 @@ Nicht Gegenstand dieses Handbuchs:
 - Gelb: Warnung, Aufmerksamkeit erforderlich
 
 **Abkürzungen:**
-Siehe Glossar (Kapitel 11)
+Begriffe werden im Glossar (Kapitel 11) definiert.
 
 **Formatierung:**
 - **Fett:** Wichtige Begriffe
@@ -206,9 +298,13 @@ Siehe Glossar (Kapitel 11)
 
 ## 2. Systemarchitektur
 
+**Hinweis:** Dieses Kapitel beschreibt die Systemarchitektur aus operativer Sicht. 
+Die architektonischen Design-Entscheidungen und Begründungen finden sich in der arc42 Architekturdokumentation (Kapitel 5: Bausteinsicht, Kapitel 7: Verteilungssicht).
+Das Systemhandbuch zeigt "Wie funktioniert es?", die arc42 Architektur zeigt "Warum ist es so?".
+
 ### 2.1 Architekturübersicht
 
-**Zweck:** Hohe Ebene Übersicht über die Systemarchitektur.
+**Zweck:** Hohe Ebene Übersicht über die Systemarchitektur aus operativer Sicht.
 
 **Inhalt:**
 - Architekturdiagramm (High-Level)
@@ -281,6 +377,9 @@ Siehe Glossar (Kapitel 11)
 ### 2.3 Deployment-Architektur
 
 **Zweck:** Beschreibung, wie das System in der Infrastruktur verteilt ist.
+
+**Hinweis:** Die architektonischen Verteilungsentscheidungen und Begründungen finden sich in der arc42 Architekturdokumentation (Kapitel 7: Verteilungssicht).
+Das Systemhandbuch zeigt die operative Deployment-Sicht, arc42 zeigt die architektonischen Entscheidungen.
 
 **Inhalt:**
 - Deployment-Diagramm
@@ -456,6 +555,10 @@ Siehe Glossar (Kapitel 11)
 ---
 
 ## 4. Datenflüsse und Kommunikation
+
+**Hinweis:** Dieses Kapitel beschreibt Datenflüsse und Kommunikation aus operativer Sicht.
+Die architektonischen Laufzeitszenarien und Design-Entscheidungen finden sich in der arc42 Architekturdokumentation (Kapitel 6: Laufzeitsicht).
+Das Systemhandbuch zeigt "Wie funktionieren die Datenflüsse?", arc42 zeigt "Warum sind sie so gestaltet?".
 
 ### 4.1 Datenfluss-Übersicht
 
@@ -710,6 +813,10 @@ Siehe Glossar (Kapitel 11)
 
 ## 6. Schnittstellen und externe Systeme
 
+**Hinweis:** Dieses Kapitel beschreibt Schnittstellen und externe Systeme aus operativer Sicht.
+Die architektonischen Schnittstellen-Entscheidungen und Systemkontext finden sich in der arc42 Architekturdokumentation (Kapitel 3: Kontextabgrenzung, Kapitel 5: Schnittstellenbeschreibung).
+Das Systemhandbuch zeigt "Wie funktionieren die Schnittstellen?", arc42 zeigt "Warum sind sie so gestaltet?".
+
 ### 6.1 Übersicht externer Systeme
 
 **Zweck:** Liste aller externen Systeme, mit denen das System kommuniziert.
@@ -857,6 +964,17 @@ Siehe Glossar (Kapitel 11)
 - [Voraussetzung 1]: Überprüfung
 - [Voraussetzung 2]: Überprüfung
 
+**Checkliste: Systemstart**
+
+- [ ] Voraussetzungen prüfen (Database, Message Queue, etc.)
+- [ ] Komponente 1 starten: `[Befehl]`
+- [ ] Überprüfung: `[Check-Befehl]` (erwartete Ausgabe: ...)
+- [ ] Komponente 2 starten: `[Befehl]`
+- [ ] Überprüfung: `[Check-Befehl]` (erwartete Ausgabe: ...)
+- [ ] Health-Check durchführen: `[Befehl]`
+- [ ] Monitoring prüfen: [Dashboard-Link]
+- [ ] Logs überprüfen: `[Log-Befehl]`
+
 **Startreihenfolge:**
 1. **[Komponente 1]**
    - Befehl: `[Befehl]`
@@ -957,6 +1075,50 @@ Siehe Glossar (Kapitel 11)
 **System-Health-Check:**
 - Endpoint: [URL]
 - Erwartete Antwort: ...
+
+**Beispiel: Dashboard-Erklärung**
+
+#### Dashboard: System-Übersicht
+
+**URL:** https://monitoring.example.com/dashboard/system
+
+**Wichtige Metriken:**
+
+- **CPU Usage:** 
+  - Normal: < 70%
+  - Warnung: 70-85%
+  - Kritisch: > 85%
+  - Was tun bei Abweichung: Performance-Probleme werden in Kapitel 8.2.2 (Performance-Probleme) behandelt.
+
+- **Memory Usage:**
+  - Normal: < 80%
+  - Warnung: 80-90%
+  - Kritisch: > 90%
+  - Was tun bei Abweichung: Performance-Probleme werden in Kapitel 8.2.2 (Performance-Probleme) behandelt.
+
+- **Request Rate:**
+  - Normal: 100-200 req/s
+  - Warnung: < 50 req/s oder > 300 req/s
+  - Kritisch: 0 req/s oder > 500 req/s
+  - Was tun bei Abweichung: Service-Fehler werden in Kapitel 8.2.1 (Service-Fehler) behandelt.
+
+- **Error Rate:**
+  - Normal: < 1%
+  - Warnung: 1-5%
+  - Kritisch: > 5%
+  - Was tun bei Abweichung: Service-Fehler werden in Kapitel 8.2.1 (Service-Fehler) behandelt.
+
+**Wichtige Log-Patterns:**
+
+- **"Database Connection Error":**
+  - Bedeutung: Service kann nicht mit Database verbinden
+  - Aktion: Database-Probleme werden in Kapitel 8.2.3 (Database-Probleme) behandelt.
+  - Log-Beispiel: `ERROR: Database connection failed: connection refused`
+
+- **"OutOfMemoryError":**
+  - Bedeutung: Service hat nicht genug Memory
+  - Aktion: Performance-Probleme werden in Kapitel 8.2.2 (Performance-Probleme) behandelt.
+  - Log-Beispiel: `ERROR: java.lang.OutOfMemoryError: Java heap space`
 - Überprüfung: `[Befehl]`
 
 **Komponenten-Health-Checks:**
@@ -970,6 +1132,50 @@ Siehe Glossar (Kapitel 11)
 - Log-Quellen: [Woher kommen die Logs?]
 - Wichtige Log-Patterns: ...
 ```
+
+**Beispiel: Dashboard-Erklärung**
+
+#### Dashboard: System-Übersicht
+
+**URL:** https://monitoring.example.com/dashboard/system
+
+**Wichtige Metriken:**
+
+- **CPU Usage:** 
+  - Normal: < 70%
+  - Warnung: 70-85%
+  - Kritisch: > 85%
+  - Was tun bei Abweichung: Performance-Probleme werden in Kapitel 8.2.2 (Performance-Probleme) behandelt.
+
+- **Memory Usage:**
+  - Normal: < 80%
+  - Warnung: 80-90%
+  - Kritisch: > 90%
+  - Was tun bei Abweichung: Performance-Probleme werden in Kapitel 8.2.2 (Performance-Probleme) behandelt.
+
+- **Request Rate:**
+  - Normal: 100-200 req/s
+  - Warnung: < 50 req/s oder > 300 req/s
+  - Kritisch: 0 req/s oder > 500 req/s
+  - Was tun bei Abweichung: Service-Fehler werden in Kapitel 8.2.1 (Service-Fehler) behandelt.
+
+- **Error Rate:**
+  - Normal: < 1%
+  - Warnung: 1-5%
+  - Kritisch: > 5%
+  - Was tun bei Abweichung: Service-Fehler werden in Kapitel 8.2.1 (Service-Fehler) behandelt.
+
+**Wichtige Log-Patterns:**
+
+- **"Database Connection Error":**
+  - Bedeutung: Service kann nicht mit Database verbinden
+  - Aktion: Database-Probleme werden in Kapitel 8.2.3 (Database-Probleme) behandelt.
+  - Log-Beispiel: `ERROR: Database connection failed: connection refused`
+
+- **"OutOfMemoryError":**
+  - Bedeutung: Service hat nicht genug Memory
+  - Aktion: Performance-Probleme werden in Kapitel 8.2.2 (Performance-Probleme) behandelt.
+  - Log-Beispiel: `ERROR: java.lang.OutOfMemoryError: Java heap space`
 
 ### 7.3 Alerting
 
@@ -1072,6 +1278,44 @@ Siehe Glossar (Kapitel 11)
 - [Wie dokumentiert man die Lösung?]
 - [Wo wird sie gespeichert?]
 ```
+
+**Beispiel: Database Connection Error**
+
+**Symptom:** Service zeigt "Database Connection Error"
+
+**Schritt 1: Problem verstehen**
+- Service: UserService
+- Zeitpunkt: 14:30 Uhr
+- Betroffene: Alle Benutzer
+- Kürzliche Änderungen: Database-Update um 14:00 Uhr
+
+**Schritt 2: Informationen sammeln**
+```bash
+# Log prüfen
+tail -f /var/log/user-service/application.log | grep -i "database"
+
+# Database prüfen
+psql -h database.example.com -U admin -d mydb -c "SELECT 1"
+
+# Service-Status prüfen
+systemctl status user-service
+```
+
+**Schritt 3: Ursache eingrenzen**
+- Database erreichbar? → `psql` Test durchführen
+- Database erreichbar, aber Service zeigt Fehler? → Credentials-Problem?
+- Database nicht erreichbar? → Netzwerk-Problem?
+
+**Schritt 4: Lösung**
+- Database neu starten: `systemctl restart postgresql`
+- Service neu starten: `systemctl restart user-service`
+- Überprüfung: `curl http://localhost:8080/health`
+
+**Schritt 5: Lösung dokumentieren**
+- Problem: Database Connection Error nach Update
+- Ursache: Database-Service nicht erreichbar
+- Lösung: Database neu gestartet
+- Prävention: Database-Health-Check vor Update durchführen
 
 ### 8.2 Häufige Fehlerbilder
 
@@ -1242,6 +1486,7 @@ Siehe Glossar (Kapitel 11)
 
 **Inhalt:**
 - Wartungsaufgaben
+- Checklisten für regelmäßige Aufgaben
 - Häufigkeit
 - Verantwortliche
 - Durchführungsschritte
@@ -1256,6 +1501,10 @@ Siehe Glossar (Kapitel 11)
 - Zweck: [Warum wird das gemacht?]
 - Verantwortlich: [Wer macht das?]
 - Zeitpunkt: [Wann?]
+- **Checkliste:**
+  - [ ] Schritt 1: `[Befehl oder Anleitung]`
+  - [ ] Schritt 2: `[Befehl oder Anleitung]`
+  - [ ] Überprüfung: `[Wie überprüfe ich Erfolg?]`
 - Schritte:
   1. `[Befehl oder Anleitung]`
   2. `[Befehl oder Anleitung]`
@@ -1266,6 +1515,10 @@ Siehe Glossar (Kapitel 11)
 - Zweck: ...
 - Verantwortlich: ...
 - Zeitpunkt: ...
+- **Checkliste:**
+  - [ ] Schritt 1: ...
+  - [ ] Schritt 2: ...
+  - [ ] Überprüfung: ...
 - Schritte: ...
 - Was tun bei Fehler: ...
 
@@ -1275,8 +1528,46 @@ Siehe Glossar (Kapitel 11)
 - Zweck: ...
 - Verantwortlich: ...
 - Zeitpunkt: ...
+- **Checkliste:**
+  - [ ] Schritt 1: ...
+  - [ ] Schritt 2: ...
+  - [ ] Überprüfung: ...
 - Schritte: ...
 - Was tun bei Fehler: ...
+```
+
+**Beispiel: Wartungsaufgabe - Log-Rotation**
+
+**Aufgabe:** Log-Rotation  
+**Häufigkeit:** Wöchentlich  
+**Dauer:** 15 Minuten  
+**Verantwortlich:** Operations-Team
+
+**Zweck:** Log-Dateien werden rotiert, um Speicherplatz zu sparen und Log-Analyse zu erleichtern.
+
+**Checkliste:**
+- [ ] Log-Verzeichnis prüfen: `du -sh /var/log/my-service/`
+- [ ] Log-Rotation durchführen: `logrotate -f /etc/logrotate.d/my-service`
+- [ ] Überprüfung: `ls -lh /var/log/my-service/`
+- [ ] Alte Logs archivieren: `tar -czf logs-$(date +%Y%m%d).tar.gz /var/log/my-service/*.log.1`
+- [ ] Archivierte Logs löschen: `rm /var/log/my-service/*.log.1`
+- [ ] Monitoring prüfen: Log-Analyse-Tool sollte weiterhin funktionieren
+
+**Schritte:**
+1. Log-Verzeichnis prüfen: `du -sh /var/log/my-service/`
+2. Log-Rotation durchführen: `logrotate -f /etc/logrotate.d/my-service`
+3. Überprüfung: `ls -lh /var/log/my-service/`
+4. Alte Logs archivieren: `tar -czf logs-$(date +%Y%m%d).tar.gz /var/log/my-service/*.log.1`
+5. Archivierte Logs löschen: `rm /var/log/my-service/*.log.1`
+
+**Überprüfung:**
+- Log-Verzeichnis sollte < 10 GB sein
+- Log-Analyse-Tool sollte weiterhin funktionieren
+- Monitoring sollte keine Fehler zeigen
+
+**Was tun bei Fehler:**
+- Log-Rotation schlägt fehl: Prüfe Log-Rotation-Konfiguration (`/etc/logrotate.d/my-service`)
+- Monitoring zeigt Fehler: Prüfe Log-Analyse-Tool, stelle sicher, dass Logs weiterhin geschrieben werden
 
 ### Monatliche Aufgaben
 
@@ -1617,9 +1908,14 @@ Siehe Glossar (Kapitel 11)
 [HIER: Referenzen auflisten]
 
 ### Interne Dokumentation
-- Architekturdokumentation: [Link]
-- Entwicklerdokumentation: [Link]
-- ADRs: [Link]
+- **Architekturdokumentation (arc42):** [Link zur arc42 Architekturdokumentation]
+  - Die arc42 Architekturdokumentation beschreibt "Warum" das System so aufgebaut ist (Design-Entscheidungen)
+  - Das Systemhandbuch beschreibt "Wie" das System funktioniert (operative Sicht)
+  - Beide Dokumentationen sollten konsistent sein
+- **Entwicklerdokumentation:** [Link]
+- **ADRs (Architecture Decision Records):** [Link]
+  - ADRs dokumentieren wichtige Architekturentscheidungen (z.B. Technologieauswahl)
+  - ADRs sind Teil der arc42 Architekturdokumentation (Kapitel 9)
 
 ### Externe Dokumentation
 - [Tool 1] Dokumentation: [Link]
@@ -1789,3 +2085,29 @@ Ein **Systemhandbuch** ist eine operative Dokumentation, die:
 - Fokus auf operative Sichtweise
 
 Ein gut gepflegtes Systemhandbuch ist unverzichtbar für den erfolgreichen Betrieb eines IT-Softwaresystems.
+
+---
+
+## Beteiligte Rollen
+
+- **Operations-Team:** Erstellt und pflegt das Systemhandbuch. 
+  Das Operations-Team nutzt das Systemhandbuch für den Betrieb des Systems. 
+  Das Operations-Team führt Systemstart, Monitoring und Wartungsaufgaben durch.
+- **Support-Team:** Nutzt das Systemhandbuch für Fehleranalyse und Troubleshooting. 
+  Das Support-Team verwendet das Systemhandbuch, um Benutzerprobleme zu analysieren und zu lösen.
+- **DevOps-Engineers:** Nutzen das Systemhandbuch für Deployment und Monitoring. 
+  DevOps-Engineers verwenden das Systemhandbuch für Systemstart, Monitoring und Infrastruktur-Management.
+- **Systemadministratoren:** Nutzen das Systemhandbuch für Systembetrieb und Wartung. 
+  Systemadministratoren verwenden das Systemhandbuch für Systemstart, Monitoring und Administration.
+
+## Verknüpfungen zu anderen Artefakten
+
+- **arc42 Architekturdokumentation:** Das Systemhandbuch basiert auf Informationen aus der arc42 Architekturdokumentation. 
+  Die arc42 Architektur beschreibt "Warum" das System so aufgebaut ist (Design-Entscheidungen), 
+  das Systemhandbuch beschreibt "Wie" das System funktioniert (operative Sicht). 
+  Beide Dokumentationen ergänzen sich und sollten konsistent sein.
+  Die arc42 Architekturdokumentation wird in `{PROMPT}/artefakte/architektur_arc42.md` beschrieben.
+- **Nutzerhandbuch:** Das Nutzerhandbuch beschreibt die Benutzer-Sicht des Systems, 
+  das Systemhandbuch beschreibt die operative Sicht. 
+  Beide Dokumentationen ergänzen sich.
+  Das Nutzerhandbuch-Template wird in `{PROMPT}/artefakte/nutzerhandbuch.md` beschrieben.
