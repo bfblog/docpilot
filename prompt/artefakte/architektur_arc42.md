@@ -38,11 +38,14 @@ Dieses Artefakt ist ein Template für die Erstellung einer arc42 Architekturdoku
 
 **Wie verwende ich dieses Artefakt?**
 
+Dieses Artefakt ist ein **Template/Ablageort** für deine Architekturdokumentation. Du beginnst mit den Informationen, die du bereits hast, und arbeitest dich iterativ vor.
+
 1. **Kopiere die Struktur:** Nutze dieses Template als Vorlage für deine Architekturdokumentation
-2. **Folge der empfohlenen Reihenfolge:** Beginne mit den Kapiteln, die keine Abhängigkeiten haben 
-   (siehe Abschnitt "Empfohlene Reihenfolge beim Ausfüllen" weiter unten in diesem Dokument)
-3. **Fülle Schritt für Schritt aus:** Nicht alle Kapitel müssen sofort vollständig sein
-4. **Nutze die Abhängigkeiten:** Die Abhängigkeitshinweise helfen dir, die richtige Reihenfolge zu finden
+2. **Beginne mit bekannten Informationen:** Starte mit den Kapiteln, für die du bereits Informationen hast
+3. **Nicht alle Kapitel sind Pflicht:** Fülle nur die Kapitel aus, die für dein Projekt relevant sind
+4. **Arbeite iterativ:** Erweitere die Dokumentation schrittweise, wenn neue Informationen verfügbar sind
+
+**Für iterative Vorgehensweise:** Siehe die Softwarearchitekt-Rolle für Details zur kontinuierlichen Dokumentation und agilen Arbeitsweise.
 
 **Für wen ist dieses Artefakt?**
 
@@ -52,9 +55,89 @@ Dieses Artefakt ist ein Template für die Erstellung einer arc42 Architekturdoku
 
 ---
 
+## Quick-Start-Guide: Erste Schritte mit arc42
+
+**Wichtig:** Dieses Artefakt ist ein Template/Ablageort. Die iterative Vorgehensweise kommt aus deiner Rolle (siehe Softwarearchitekt-Rolle für Details zur agilen Dokumentation).
+
+### Schritt 1: Beginne mit bekannten Informationen
+
+Starte nicht mit leeren Kapiteln, sondern mit dem, was du bereits weißt:
+
+- **Du hast bereits eine Vision?** → Beginne mit Kapitel 1.1 (Anforderungen) und Kapitel 3 (Systemkontext)
+- **Du kennst die Hauptkomponenten?** → Beginne mit Kapitel 5 (Bausteinsicht, Level 1)
+- **Du hast bereits technische Entscheidungen getroffen?** → Beginne mit Kapitel 9 (Architekturentscheidungen) oder dokumentiere sie als ADRs
+- **Du kennst die Qualitätsziele?** → Beginne mit Kapitel 1.2 (Qualitätsziele)
+
+**Prinzip:** Lege die Informationen dort ab, wo sie in der arc42-Struktur hingehören. Du musst nicht alle Kapitel sofort ausfüllen.
+
+### Schritt 2: Nicht alle Kapitel sind Pflicht
+
+arc42 ist flexibel - nicht alle Kapitel müssen für jedes Projekt ausgefüllt werden:
+
+**Kern-Kapitel (meist wichtig):**
+- Kapitel 3: Kontextabgrenzung
+- Kapitel 5: Bausteinsicht
+- Kapitel 6: Laufzeitsicht (mindestens ein wichtiges Szenario)
+
+**Ergänzende Kapitel (nach Bedarf):**
+- Kapitel 1: Einführung und Ziele (wenn Qualitätsziele wichtig sind)
+- Kapitel 4: Lösungsstrategie (wenn strategische Entscheidungen wichtig sind)
+- Kapitel 7: Verteilungssicht (wenn Deployment relevant ist)
+- Kapitel 8: Querschnittliche Konzepte (wenn übergreifende Konzepte wichtig sind)
+- Kapitel 9: Architekturentscheidungen (kann auch als separate ADRs dokumentiert werden)
+- Kapitel 10: Qualitätsszenarien (wenn Qualitätsvalidierung wichtig ist)
+- Kapitel 11: Risiken (wenn Risikomanagement wichtig ist)
+- Kapitel 12: Glossar (wenn viele Fachbegriffe verwendet werden)
+
+**Prinzip:** Fülle nur die Kapitel aus, die für dein Projekt relevant sind. Ein MVP kann mit 3-4 Kapiteln starten.
+
+### Schritt 3: Arbeite dich iterativ vor
+
+Wenn du neue Informationen hast, ergänze die entsprechenden Kapitel:
+
+- **Neues Feature implementiert?** → Aktualisiere Kapitel 5 (Bausteinsicht) und Kapitel 6 (Laufzeitsicht)
+- **Neue technische Entscheidung?** → Ergänze Kapitel 9 oder erstelle ein ADR
+- **Neue Qualitätsanforderung?** → Aktualisiere Kapitel 1.2 (Qualitätsziele) und Kapitel 10 (Qualitätsszenarien)
+
+**Prinzip:** Die Dokumentation wächst mit dem Projekt. Du musst nicht alles sofort perfekt dokumentieren.
+
+### Schritt 4: Nutze die empfohlene Reihenfolge als Orientierung
+
+Die empfohlene Reihenfolge (siehe Abschnitt "Empfohlene Reihenfolge beim Ausfüllen" weiter unten) hilft dir, Abhängigkeiten zu berücksichtigen. Aber: Beginne trotzdem mit dem, was du bereits weißt, auch wenn es nicht der empfohlenen Reihenfolge entspricht.
+
+**Beispiel:** Du kennst bereits die Hauptkomponenten, aber noch nicht die Qualitätsziele? → Beginne mit Kapitel 5 (Bausteinsicht) und ergänze später Kapitel 1.2 (Qualitätsziele).
+
+---
+
+## Traceability: Nachvollziehbarkeit von Entscheidungen
+
+**Zweck:** Dieser Abschnitt beschreibt, wie Traceability in der arc42 Architekturdokumentation dokumentiert wird. Traceability macht Entscheidungen nachvollziehbar und zeigt, wie die verschiedenen Kapitel zusammenhängen.
+
+**Metapher:** arc42 ist wie ein Schrank mit Ablagefächern - jedes Fach (Kapitel) enthält bestimmte Informationen. Die Traceability zeigt, wie die Fächer zusammenhängen und wie Entscheidungen von einem Fach zum anderen nachvollzogen werden können.
+
+**Warum Traceability wichtig ist:**
+- **Nachvollziehbarkeit:** Leser können verstehen, warum bestimmte Entscheidungen getroffen wurden
+- **Konsistenz:** Sichert, dass alle Kapitel konsistent sind und aufeinander aufbauen
+- **Wartbarkeit:** Erleichtert das Aktualisieren der Dokumentation, da Abhängigkeiten klar sind
+- **Validierung:** Hilft zu prüfen, ob alle Qualitätsziele erfüllt werden
+
+**Wo wird Traceability dokumentiert?**
+
+In einem arc42 Architekturdokument sollte Traceability an folgenden Stellen dokumentiert werden:
+
+1. **In jedem Kapitel:** Jedes Kapitel dokumentiert seine Abhängigkeiten zu anderen Kapiteln (siehe Abschnitt "Abhängigkeiten" in jedem Kapitel)
+2. **Traceability-Matrizen:** Systematische Übersicht wichtiger Entscheidungen (z.B. Qualitätsziele) - wird im Zieldokument erstellt
+3. **Verweise zwischen Kapiteln:** Explizite Verweise zeigen Zusammenhänge (z.B. "Siehe Kapitel 4 für Lösungsstrategie")
+
+**Hinweis:** Die folgenden Abschnitte zeigen die Struktur und Platzhalter für Traceability-Matrizen. Diese werden im Zieldokument mit den tatsächlichen Qualitätszielen, ADRs und Bausteinen ausgefüllt.
+
+---
+
 ## Dokumentationsbausteine und deren Abhängigkeiten
 
 Die arc42 Architekturdokumentation besteht aus verschiedenen Dokumentationsbausteinen, die inhaltlich den arc42-Kapiteln entsprechen. Die Bausteine haben inhaltliche Abhängigkeiten (Input/Begründung/Verfeinerung), die bei der Erstellung der Dokumentation beachtet werden sollten.
+
+**Hinweis:** Für eine systematische Übersicht der Traceability siehe Abschnitt "Traceability: Nachvollziehbarkeit von Entscheidungen" weiter oben.
 
 ### Mapping der Dokumentationsbausteine auf arc42-Kapitel
 
@@ -151,6 +234,8 @@ Randbedingungen können jedoch die Grundlage für übergreifende Konzepte bilden
 
 ### Empfohlene Reihenfolge beim Ausfüllen
 
+**Hinweis:** Diese Reihenfolgen sind Orientierungshilfen, keine Pflicht. Beginne mit den Kapiteln, für die du bereits Informationen hast (siehe Quick-Start-Guide oben). Die Reihenfolge hilft dir, Abhängigkeiten zu berücksichtigen, wenn du neue Kapitel ergänzt.
+
 **Basierend auf Abhängigkeiten (empfohlen für neue Projekte):**
 
 1. **Start:** Anforderungen, Personas, Systemkontext (Kapitel 1.1, 1.3, Kapitel 3)
@@ -168,6 +253,106 @@ Randbedingungen können jedoch die Grundlage für übergreifende Konzepte bilden
 3. **Ergänzung:** Kapitel 4 (Lösungsstrategie), Kapitel 8 (Querschnittliche Konzepte)
 4. **Abschluss:** Kapitel 2 (Randbedingungen), Kapitel 9 (Architekturentscheidungen), 
    Kapitel 10 (Qualitätsanforderungen), Kapitel 11 (Risiken), Kapitel 12 (Glossar)
+
+**Wichtig:** Nicht alle Kapitel müssen ausgefüllt werden. Fülle nur die aus, die für dein Projekt relevant sind.
+
+### Traceability-Matrizen (für das Zieldokument)
+
+**Zweck:** Traceability-Matrizen zeigen systematisch, wie Entscheidungen nachvollziehbar sind. Sie verbinden verschiedene Kapitel und zeigen die Abhängigkeiten zwischen Entscheidungen.
+
+**Hinweis:** Die folgenden Matrizen sind Platzhalter/Beispiele für das Zieldokument. Im echten arc42 Architekturdokument werden diese Matrizen mit den tatsächlichen Qualitätszielen, ADRs, Bausteinen etc. ausgefüllt.
+
+#### Traceability-Matrix: Qualitätsziele
+
+**Zweck:** Diese Matrix zeigt, wie jedes Qualitätsziel (aus Kapitel 1.2) durch verschiedene Kapitel erfüllt wird.
+
+**Zu dokumentieren im Zieldokument:**
+```
+[HIER: Traceability-Matrix für Qualitätsziele erstellen]
+
+| Qualitätsziel | Priorität | Erfüllt durch Lösungsstrategie (K4) | Erfüllt durch Bausteine (K5) | Erfüllt durch Laufzeitsicht (K6) | Erfüllt durch Verteilungssicht (K7) | Erfüllt durch Konzepte (K8) | Erfüllt durch ADRs (K9) | Validierung (K10) |
+|---------------|-----------|-------------------------------------|------------------------------|----------------------------------|-------------------------------------|----------------------------|------------------------|-------------------|
+| [Qualitätsziel 1] | [Priorität] | [Strategischer Ansatz] | [Baustein-Name] | [Szenario-Name] | [Deployment-Aspekt] | [Konzept-Name] | [ADR-Nummer: Titel] | [Qualitätsszenario] |
+| [Qualitätsziel 2] | [Priorität] | [Strategischer Ansatz] | [Baustein-Name] | [Szenario-Name] | [Deployment-Aspekt] | [Konzept-Name] | [ADR-Nummer: Titel] | [Qualitätsszenario] |
+
+**Legende:**
+- **K4** = Kapitel 4 (Lösungsstrategie)
+- **K5** = Kapitel 5 (Bausteinsicht)
+- **K6** = Kapitel 6 (Laufzeitsicht)
+- **K7** = Kapitel 7 (Verteilungssicht)
+- **K8** = Kapitel 8 (Querschnittliche Konzepte)
+- **K9** = Kapitel 9 (Architekturentscheidungen)
+- **K10** = Kapitel 10 (Qualitätsszenarien)
+```
+
+**Verwendung:** Diese Matrix hilft zu prüfen, ob jedes Qualitätsziel vollständig erfüllt wird. Für jedes Qualitätsziel sollte mindestens eine Erfüllung in jedem relevanten Kapitel dokumentiert sein.
+
+**Beispiel:** Siehe Kapitel 1.2, Abschnitt "Erfüllung der Qualitätsziele" für ein detailliertes Beispiel.
+
+#### Traceability-Matrix: Entscheidungsfluss
+
+**Zweck:** Diese Matrix zeigt den vollständigen Weg von Anforderungen zu Architekturentscheidungen.
+
+**Zu dokumentieren im Zieldokument:**
+```
+[HIER: Traceability-Matrix für Entscheidungsfluss erstellen]
+
+| Anforderung (K1.1) | Qualitätsziel (K1.2) | Lösungsstrategie (K4) | Architekturentscheidung (K9) | Umsetzung (K5/K6/K7) | Validierung (K10) |
+|---------------------|----------------------|------------------------|------------------------------|----------------------|-------------------|
+| "[Anforderung 1]" | [Qualitätsziel] ([Priorität]) | [Strategischer Ansatz] | [ADR-Nummer: Titel] | [Baustein/Szenario] ([Kapitel]) | [Qualitätsszenario] |
+| "[Anforderung 2]" | [Qualitätsziel] ([Priorität]) | [Strategischer Ansatz] | [ADR-Nummer: Titel] | [Baustein/Szenario] ([Kapitel]) | [Qualitätsszenario] |
+```
+
+**Verwendung:** Diese Matrix zeigt den vollständigen Weg von einer Anforderung über Qualitätsziele und Strategie bis zur konkreten Architekturentscheidung und deren Umsetzung.
+
+#### Entscheidungsfluss-Diagramm
+
+**Zweck:** Zeigt visuell den Fluss von Anforderungen zu Architekturentscheidungen.
+
+**Zu dokumentieren im Zieldokument:**
+```
+[HIER: Entscheidungsfluss-Diagramm erstellen]
+
+Anforderungen (K1.1)
+    ↓
+Qualitätsziele (K1.2) ← Personas (K1.3)
+    ↓
+Lösungsstrategie (K4) ← Randbedingungen (K2), Konzepte (K8)
+    ↓
+Architekturentscheidungen (K9)
+    ↓
+Bausteinsicht (K5) → Laufzeitsicht (K6) → Verteilungssicht (K7)
+    ↓
+Validierung durch Qualitätsszenarien (K10)
+```
+
+**Hinweis:** Nicht alle Entscheidungen folgen diesem Fluss linear - es gibt Rückkopplungen und parallele Abhängigkeiten. Das Diagramm zeigt den typischen Entscheidungsfluss.
+
+### Navigation zwischen Kapiteln
+
+**Zweck:** In einem arc42 Architekturdokument sollten Leser zwischen verwandten Kapiteln navigieren können.
+
+**Wie wird Navigation dokumentiert?**
+
+1. **In jedem Kapitel:** Der Abschnitt "Abhängigkeiten" zeigt, auf welche Kapitel das aktuelle Kapitel aufbaut
+2. **Verweise im Text:** Explizite Verweise wie "Siehe Kapitel 4, Abschnitt 'Lösungsstrategie'" zeigen Zusammenhänge
+3. **Traceability-Matrizen:** Systematische Übersicht der Abhängigkeiten (siehe Abschnitt "Traceability-Matrizen (für das Zieldokument)" weiter oben)
+
+**Beispiel für Verweise:**
+
+- In Kapitel 1.2 (Qualitätsziele): "Diese Qualitätsziele werden in Kapitel 4 (Lösungsstrategie) durch strategische Ansätze erfüllt. Siehe Abschnitt 'Erfüllung der Qualitätsziele' für Details."
+- In Kapitel 4 (Lösungsstrategie): "Diese Lösungsstrategie basiert auf den Qualitätszielen aus Kapitel 1.2. Die konkrete Umsetzung wird in Kapitel 5 (Bausteinsicht) beschrieben."
+- In Kapitel 9 (Architekturentscheidungen): "Diese ADR erfüllt das Qualitätsziel 'Performance' aus Kapitel 1.2. Die Umsetzung wird in Kapitel 5, Baustein 'Cache-Service' beschrieben."
+
+### Best Practices für Traceability
+
+- ✅ **Dokumentiere Abhängigkeiten explizit:** Jedes Kapitel sollte klar zeigen, auf welche anderen Kapitel es aufbaut
+- ✅ **Verwende Traceability-Matrizen:** Für wichtige Entscheidungen (z.B. Qualitätsziele) systematische Matrizen erstellen
+- ✅ **Verweise zwischen Kapiteln:** Explizite Verweise zeigen Zusammenhänge (z.B. "Siehe Kapitel X, Abschnitt Y")
+- ✅ **Aktualisiere Traceability regelmäßig:** Wenn sich Entscheidungen ändern, auch die Traceability aktualisieren
+- ✅ **Validiere Traceability:** Prüfe regelmäßig, ob alle Qualitätsziele erfüllt werden
+- ❌ **Vermeide:** Vage Verweise ohne konkrete Kapitel/Abschnitte
+- ❌ **Vermeide:** Traceability nur am Anfang dokumentieren, dann vergessen
 
 ---
 
@@ -214,6 +399,8 @@ während der Produktkarton eine höhere Abstraktionsebene (Vision) beschreibt.
 - Qualitätsziele treiben die Lösungsstrategie (Kapitel 4).
 - Qualitätsziele beeinflussen Architekturentscheidungen (Kapitel 9).
 
+**Traceability:** Für eine systematische Übersicht der Abhängigkeiten siehe Abschnitt "Traceability: Nachvollziehbarkeit von Entscheidungen". Im Zieldokument sollte eine Traceability-Matrix für Qualitätsziele erstellt werden, die zeigt, wie jedes Qualitätsziel durch verschiedene Kapitel erfüllt wird.
+
 **Inhalt:**
 - Priorisierte Liste der Qualitätsziele (z.B. Performance, Sicherheit, Wartbarkeit, Skalierbarkeit)
 - Begründung für die Priorisierung
@@ -224,9 +411,99 @@ während der Produktkarton eine höhere Abstraktionsebene (Vision) beschreibt.
 [HIER: Qualitätsziele mit Priorisierung auflisten]
 1. [Qualitätsziel 1] - Priorität: Hoch/Mittel/Niedrig
    - Begründung: ...
+   - Erfüllt durch: [Siehe Abschnitt "Erfüllung der Qualitätsziele" unten]
 2. [Qualitätsziel 2] - Priorität: Hoch/Mittel/Niedrig
    - Begründung: ...
+   - Erfüllt durch: [Siehe Abschnitt "Erfüllung der Qualitätsziele" unten]
 ```
+
+### Erfüllung der Qualitätsziele
+
+**Zweck:** Dieser Abschnitt zeigt, wo und wie jedes Qualitätsziel in der Architektur erfüllt wird. Dies verbessert die Nachvollziehbarkeit und hilft bei der Validierung der Architektur.
+
+**Traceability:** Für eine systematische Übersicht der Traceability-Struktur siehe Abschnitt "Traceability: Nachvollziehbarkeit von Entscheidungen". Im Zieldokument sollte eine Traceability-Matrix für Qualitätsziele erstellt werden, die zeigt, wie jedes Qualitätsziel durch verschiedene Kapitel erfüllt wird.
+
+**Wo werden Qualitätsziele erfüllt?**
+
+Qualitätsziele werden in verschiedenen Kapiteln der arc42 Architekturdokumentation erfüllt:
+
+- **Kapitel 4 (Lösungsstrategie):** Beschreibt die strategischen Ansätze zur Erfüllung der Qualitätsziele (z.B. Microservices für Skalierbarkeit, Caching für Performance)
+- **Kapitel 5 (Bausteinsicht):** Zeigt, welche Bausteine zur Erfüllung der Qualitätsziele beitragen (z.B. Load Balancer für Performance, Security Gateway für Sicherheit)
+- **Kapitel 6 (Laufzeitsicht):** Beschreibt, wie Qualitätsziele zur Laufzeit erfüllt werden (z.B. Caching-Strategien für Performance, Retry-Mechanismen für Zuverlässigkeit)
+- **Kapitel 7 (Verteilungssicht):** Zeigt, wie die Deployment-Architektur Qualitätsziele erfüllt (z.B. horizontale Skalierung für Skalierbarkeit, Multi-Region für Verfügbarkeit)
+- **Kapitel 8 (Querschnittliche Konzepte):** Beschreibt übergreifende Konzepte zur Erfüllung der Qualitätsziele (z.B. Security-Konzept für Sicherheit, Logging-Konzept für Wartbarkeit)
+- **Kapitel 9 (Architekturentscheidungen):** Dokumentiert konkrete Entscheidungen zur Erfüllung der Qualitätsziele (z.B. ADR: "Verwendung von Redis für Caching zur Erfüllung des Performance-Ziels")
+- **Kapitel 10 (Qualitätsszenarien):** Definiert messbare Szenarien zur Validierung der Qualitätsziele
+
+**Zu dokumentieren:**
+```
+[HIER: Erfüllung jedes Qualitätsziels dokumentieren]
+
+### Übersicht: Erfüllung der Qualitätsziele
+
+| Qualitätsziel | Priorität | Erfüllt durch Lösungsstrategie | Erfüllt durch Bausteine | Erfüllt durch Architekturentscheidungen | Validierung (Qualitätsszenarien) |
+|---------------|-----------|-------------------------------|------------------------|----------------------------------------|----------------------------------|
+| Performance | Hoch | Caching-Strategie, Load Balancing | Cache-Service, Load Balancer | ADR-001: Redis für Caching | Szenario: Response Time < 2s (Kapitel 10) |
+| Sicherheit | Hoch | Security-First-Ansatz, Zero-Trust | Security Gateway, Auth-Service | ADR-002: Keycloak für Authentication | Szenario: OWASP Top 10 Compliance (Kapitel 10) |
+| Skalierbarkeit | Mittel | Microservices-Architektur | Auto-Scaling, Message Queue | ADR-003: Kubernetes für Orchestrierung | Szenario: Horizontal Scaling (Kapitel 10) |
+
+### Detaillierte Erfüllung pro Qualitätsziel
+
+#### Qualitätsziel 1: [Name, z.B. "Performance"]
+
+**Priorität:** Hoch/Mittel/Niedrig
+
+**Begründung:** [Warum ist dieses Qualitätsziel wichtig?]
+
+**Erfüllt durch:**
+
+1. **Lösungsstrategie (Kapitel 4):**
+   - [Strategischer Ansatz 1, z.B. "Caching-Strategie für häufig abgerufene Daten"]
+   - [Strategischer Ansatz 2, z.B. "Load Balancing für gleichmäßige Lastverteilung"]
+   - Verweis: Siehe Kapitel 4, Abschnitt "[Relevanter Abschnitt]"
+
+2. **Bausteinsicht (Kapitel 5):**
+   - [Baustein 1, z.B. "Cache-Service"] - Implementiert Caching-Strategie
+   - [Baustein 2, z.B. "Load Balancer"] - Verteilt Last gleichmäßig
+   - Verweis: Siehe Kapitel 5, Level 2: "[Baustein-Name]"
+
+3. **Laufzeitsicht (Kapitel 6):**
+   - [Laufzeitszenario, z.B. "Caching bei Datenabfrage"] - Zeigt, wie Caching zur Laufzeit funktioniert
+   - Verweis: Siehe Kapitel 6, Szenario: "[Szenario-Name]"
+
+4. **Verteilungssicht (Kapitel 7):**
+   - [Deployment-Aspekt, z.B. "Horizontale Skalierung"] - Ermöglicht Performance-Skalierung
+   - Verweis: Siehe Kapitel 7, Abschnitt "[Relevanter Abschnitt]"
+
+5. **Querschnittliche Konzepte (Kapitel 8):**
+   - [Konzept, z.B. "Performance-Monitoring"] - Überwacht Performance-Metriken
+   - Verweis: Siehe Kapitel 8, Abschnitt "[Relevanter Abschnitt]"
+
+6. **Architekturentscheidungen (Kapitel 9):**
+   - [ADR-Name, z.B. "ADR-001: Verwendung von Redis für Caching"] - Konkrete Entscheidung zur Erfüllung
+   - Verweis: Siehe Kapitel 9, ADR-001
+
+7. **Validierung (Kapitel 10):**
+   - [Qualitätsszenario, z.B. "Systemantwortzeit bei hoher Last"] - Messbares Szenario zur Validierung
+   - Verweis: Siehe Kapitel 10, Qualitätsszenario: "[Szenario-Name]"
+
+**Messgrößen:**
+- [Metrik 1, z.B. "Response Time (95th Percentile)"]: Zielwert < 2 Sekunden
+- [Metrik 2, z.B. "Throughput"]: Zielwert > 1000 Requests/Sekunde
+
+**Status:** ✅ Erfüllt / ⚠️ Teilweise erfüllt / ❌ Nicht erfüllt
+
+#### Qualitätsziel 2: [Name, z.B. "Sicherheit"]
+[Wiederhole die Struktur für jedes weitere Qualitätsziel]
+```
+
+**Best Practices:**
+- ✅ Dokumentiere für jedes Qualitätsziel explizit, wo es erfüllt wird
+- ✅ Verweise auf konkrete Kapitel, Abschnitte und ADRs
+- ✅ Zeige die Verbindung zwischen Qualitätszielen und ihrer Umsetzung
+- ✅ Dokumentiere Messgrößen und Validierung
+- ✅ Aktualisiere den Status regelmäßig (erfüllt/teilweise erfüllt/nicht erfüllt)
+- ❌ Vermeide: Vage Verweise ohne konkrete Kapitel/Abschnitte
 
 ### 1.3 Stakeholder / Personas
 
@@ -439,12 +716,12 @@ während der Produktkarton eine höhere Abstraktionsebene (Vision) beschreibt.
 #### [Fachlicher Baustein 1: z.B. "User Management"]
 - **Fachliche Verantwortlichkeit:** Verwaltung von Benutzerkonten, Authentifizierung, Autorisierung
 - **Fachliche Abhängigkeiten:** Nutzt "Payment" für Zahlungsabwicklung, liefert Daten an "Order Processing"
-- **Gemappt auf technische Bausteine:** UserService, UserRepository, AuthService (siehe Level 2)
+- **Gemappt auf technische Bausteine:** UserService, UserRepository, AuthService (siehe Level 2: Technische Bausteine)
 
 #### [Fachlicher Baustein 2: z.B. "Order Processing"]
 - **Fachliche Verantwortlichkeit:** Bestellabwicklung, Bestellstatus-Verwaltung
 - **Fachliche Abhängigkeiten:** Nutzt "User Management" für Benutzerdaten, nutzt "Payment" für Zahlungen
-- **Gemappt auf technische Bausteine:** OrderService, OrderRepository, OrderAPI (siehe Level 2)
+- **Gemappt auf technische Bausteine:** OrderService, OrderRepository, OrderAPI (siehe Level 2: Technische Bausteine)
 
 ### Level 2: Technische Bausteine (Komponenten/Services)
 
@@ -458,7 +735,7 @@ während der Produktkarton eine höhere Abstraktionsebene (Vision) beschreibt.
   - Benötigt: UserRepository (für Persistenz)
   - Benötigt: AuthService (für Authentifizierung)
   - Benötigt: NotificationService (für E-Mail-Benachrichtigungen)
-- **Enthaltene Sub-Bausteine:** UserValidator, UserMapper (siehe Level 3)
+- **Enthaltene Sub-Bausteine:** UserValidator, UserMapper (siehe Level 3: Detaillierung)
 
 #### [Technischer Baustein: z.B. "UserRepository"]
 - **Technische Verantwortlichkeit:** Datenzugriff für User Management, Persistenz
@@ -473,9 +750,65 @@ während der Produktkarton eine höhere Abstraktionsebene (Vision) beschreibt.
 
 #### [Sub-Baustein: z.B. "UserValidator"]
 - **Verantwortlichkeit:** Validierung von Benutzerdaten (E-Mail-Format, Passwort-Stärke)
-- **Gehört zu technischem Baustein:** UserService (Level 2)
+- **Gehört zu technischem Baustein:** UserService (Level 2: Technische Bausteine)
 - **Schnittstellen:** Interface: IUserValidator
 - **Abhängigkeiten:** Keine externen Abhängigkeiten
+```
+
+### Mapping zwischen fachlichen und technischen Bausteinen
+
+**Zweck:** Das Mapping zeigt die Beziehung zwischen fachlichen Bausteinen (Level 1) und ihrer technischen Umsetzung (Level 2+). Dies verbessert die Nachvollziehbarkeit und hilft Stakeholdern zu verstehen, wie fachliche Anforderungen technisch umgesetzt werden.
+
+**Mapping-Prinzipien:**
+- **1:1-Mapping:** Ein fachlicher Baustein kann auf einen technischen Baustein gemappt werden
+- **1:N-Mapping:** Ein fachlicher Baustein kann auf mehrere technische Bausteine gemappt werden (häufigster Fall)
+- **N:1-Mapping:** Mehrere fachliche Bausteine können auf einen technischen Baustein gemappt werden (seltener, z.B. Shared Kernel)
+
+**Bidirektionale Dokumentation:**
+- **Level 1 → Level 2:** Jeder fachliche Baustein dokumentiert, auf welche technischen Bausteine er gemappt wird (Feld: "Gemappt auf technische Bausteine")
+- **Level 2 → Level 1:** Jeder technische Baustein dokumentiert, zu welchem fachlichen Baustein er gehört (Feld: "Gehört zu fachlichem Baustein")
+- **Level 3 → Level 2:** Jeder Sub-Baustein dokumentiert, zu welchem technischen Baustein er gehört (Feld: "Gehört zu technischem Baustein")
+
+**Zu dokumentieren:**
+```
+[HIER: Mapping-Übersicht erstellen]
+
+### Übersicht: Mapping zwischen fachlichen und technischen Bausteinen
+
+| Fachlicher Baustein (Level 1) | Technische Bausteine (Level 2) | Sub-Bausteine (Level 3) |
+|-------------------------------|-------------------------------|------------------------|
+| User Management | UserService, UserRepository, AuthService | UserValidator, UserMapper (zu UserService) |
+| Order Processing | OrderService, OrderRepository, OrderAPI | - |
+| Payment | PaymentService, PaymentGateway | PaymentValidator (zu PaymentService) |
+
+**Legende:**
+- **Fachlicher Baustein:** Beschreibt die fachliche Domäne oder den Bounded Context
+- **Technische Bausteine:** Implementieren die fachliche Domäne
+- **Sub-Bausteine:** Detaillierung wichtiger technischer Bausteine (optional)
+
+### Mapping-Details pro fachlichem Baustein
+
+#### [Fachlicher Baustein: z.B. "User Management"]
+
+**Gemappt auf folgende technische Bausteine:**
+
+1. **UserService** (Level 2)
+   - **Rolle:** Implementiert die Business-Logik für User Management
+   - **Schnittstellen:** REST API `/api/users`, Events `UserCreated`, `UserUpdated`
+   - **Enthaltene Sub-Bausteine:** UserValidator, UserMapper (Level 3)
+
+2. **UserRepository** (Level 2)
+   - **Rolle:** Datenzugriff und Persistenz für User Management
+   - **Schnittstellen:** Datenbank User-Tabelle, Interface IUserRepository
+
+3. **AuthService** (Level 2)
+   - **Rolle:** Authentifizierung und Autorisierung
+   - **Schnittstellen:** REST API `/api/auth`, JWT-Token-Generierung
+
+**Begründung des Mappings:**
+- UserService kapselt die Business-Logik und ist der primäre Einstiegspunkt für User Management
+- UserRepository trennt Datenzugriff von Business-Logik (Repository Pattern)
+- AuthService ist fachlich Teil von User Management, aber technisch als separater Service implementiert (Separation of Concerns)
 ```
 
 **Detaillierungsgrad:**
@@ -862,11 +1195,13 @@ Wir entscheiden uns für [gewählte Option].
 **Zweck:** Detaillierte Beschreibung der Qualitätsziele in Form eines Qualitätsbaums und Qualitätsszenarien. Qualitätsszenarien sind messbare Szenarien zur Bewertung von Qualität.
 
 **Abhängigkeiten:**
-- Qualitätsszenarien konkretisieren Qualitätsziele (Kapitel 1.2).
+- Qualitätsszenarien konkretisieren Qualitätsziele (Kapitel 1.2). Jedes Qualitätsszenario bezieht sich auf ein oder mehrere Qualitätsziele aus Kapitel 1.2.
 - Qualitätsszenarien beeinflussen die Lösungsstrategie (Kapitel 4).
 - Qualitätsszenarien treiben Architekturentscheidungen (Kapitel 9).
 - Qualitätsszenarien validieren die Bausteinsicht (Kapitel 5).
 - Qualitätsszenarien validieren die Laufzeitsicht (Kapitel 6).
+
+**Wichtig:** Jedes Qualitätsszenario sollte explizit auf die zugehörigen Qualitätsziele aus Kapitel 1.2 verweisen. Die Erfüllung der Qualitätsziele wird in Kapitel 1.2, Abschnitt "Erfüllung der Qualitätsziele" dokumentiert.
 
 **Inhalt:**
 - Qualitätsbaum (Strukturierung der Qualitätsziele)
@@ -889,6 +1224,9 @@ Wir entscheiden uns für [gewählte Option].
 ### Qualitätsszenarien
 
 #### Szenario 1: [Qualitätsziel]
+**Bezieht sich auf Qualitätsziel:** [Qualitätsziel aus Kapitel 1.2, z.B. "Performance"]
+**Erfüllt durch:** [Siehe Kapitel 1.2, Abschnitt "Erfüllung der Qualitätsziele" für Details zur Umsetzung]
+
 **Stimulus:** ...
 **Umgebung:** ...
 **Reaktion:** ...
@@ -910,7 +1248,8 @@ Wir entscheiden uns für [gewählte Option].
 **Beispiel-Szenario:**
 
 #### Szenario: Systemantwortzeit bei hoher Last
-**Qualitätsziel:** Performance
+**Bezieht sich auf Qualitätsziel:** Performance (Kapitel 1.2)
+**Erfüllt durch:** Siehe Kapitel 1.2, Abschnitt "Erfüllung der Qualitätsziele" → Qualitätsziel "Performance"
 
 **Stimulus:** 1000 gleichzeitige Benutzer-Anfragen an die REST API
 
@@ -1027,11 +1366,11 @@ Wir entscheiden uns für [gewählte Option].
 - **ADR (Architecture Decision Record):** Architekturentscheidungen (Kapitel 9) werden als ADRs dokumentiert. 
   ADRs dokumentieren wichtige technische Entscheidungen mit Context, erwogenen Optionen, Entscheidung und Konsequenzen. 
   Siehe `{PROMPT}/artefakte/architecture-decision-record.md` für das ADR-Template.
-- **Feature-Spezifikation:** Feature-Spezifikationen beschreiben technische Umsetzung basierend auf der arc42 Architektur. 
-  Feature-Spezifikationen verwenden die arc42 Architektur als Leitplanke für die technische Umsetzung. 
+- **Feature-Spezifikation:** Feature-Spezifikationen beschreiben technische Umsetzung basierend auf der arc42 Architekturdokumentation. 
+  Feature-Spezifikationen verwenden die arc42 Architekturdokumentation als Leitplanke für die technische Umsetzung. 
   Siehe `{PROMPT}/artefakte/feature-spezifikation.md` für das Feature-Spezifikation-Template.
 - **SRS (Software Requirements Specification):** SRS-Dokumente definieren neue Produkt-Features mit technischen Anforderungen. 
-  SRS-Dokumente werden nach Erstellung in die arc42 Architektur integriert.
+  SRS-Dokumente werden nach Erstellung in die arc42 Architekturdokumentation integriert.
 
 ## Verknüpfungen zu anderen Artefakten
 
@@ -1130,7 +1469,7 @@ Wir entscheiden uns für [gewählte Option].
    - Halte den Schreibstil konsistent
    - Verwende einheitliche Formatierungen
 
-**Hinweis:** Siehe oben "Empfohlene Reihenfolge beim Ausfüllen" für zwei alternative Ansätze 
+**Hinweis:** Siehe Abschnitt "Empfohlene Reihenfolge beim Ausfüllen" weiter oben für zwei alternative Ansätze 
 (basiert auf Abhängigkeiten vs. arc42-Standard-Reihenfolge).
 
 ### Tools und Notationen

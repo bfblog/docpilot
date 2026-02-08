@@ -1,4 +1,15 @@
-# Architecture Decision Record (ADR)
+---
+typ: artefakt
+name: Architecture Decision Record
+kontext: Template zur Dokumentation wichtiger Architekturentscheidungen mit Context, Optionen, Entscheidung und Konsequenzen
+rollen:
+  - Softwarearchitekt
+artefakte:
+  - arc42 Architekturdokumentation
+workflows: []
+---
+
+# Artefakt: Architecture Decision Record
 
 ## Über Architecture Decision Records
 

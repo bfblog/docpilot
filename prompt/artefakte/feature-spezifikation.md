@@ -1,8 +1,21 @@
-# Feature-Spezifikation / Umsetzungsspezifikation
+---
+typ: artefakt
+name: Feature-Spezifikation
+kontext: Template zur Beschreibung der technischen Umsetzung eines Features basierend auf einer User Story
+rollen:
+  - Softwarearchitekt
+  - Dev-Team
+artefakte:
+  - arc42 Architekturdokumentation
+  - Architecture Decision Record
+workflows: []
+---
+
+# Artefakt: Feature-Spezifikation
 
 ## Über Feature-Spezifikationen
 
-Eine **Feature-Spezifikation** (auch **Umsetzungsspezifikation** genannt) beschreibt die technische Umsetzung eines Features basierend auf einer User Story. Sie verbindet die Nutzerperspektive (User Story) mit der technischen Umsetzung (Tasks).
+Eine **Feature-Spezifikation** beschreibt die technische Umsetzung eines Features basierend auf einer User Story. Sie verbindet die Nutzerperspektive (User Story) mit der technischen Umsetzung (Tasks).
 
 Die Feature-Spezifikation wird gemeinsam von Softwarearchitekt und Entwicklerteam erstellt und definiert:
 - Was ändert sich technisch an der Software?
@@ -409,7 +422,7 @@ erste Voraussetzung für alle weiteren Features.
 6. Risiken identifizieren
 7. Feature-Spezifikation dokumentieren
 
-**Ergebnis:** Technische Umsetzungsspezifikation mit Architektur-Leitplanken
+**Ergebnis:** Technische Feature-Spezifikation mit Architektur-Leitplanken
 
 ### Phase 3: Tasks (Team)
 

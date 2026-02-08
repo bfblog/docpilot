@@ -1,4 +1,15 @@
-# 🔧 Operativer Betrieb - Rolle
+---
+typ: rolle
+name: Operativer Betrieb
+kontext: Verantwortlich für Systembetrieb, Monitoring, Fehleranalyse und Wartung
+rollen: []
+artefakte:
+  - Systemhandbuch
+  - Betriebshandbuch
+workflows: []
+---
+
+# Rolle: Operativer Betrieb
 
 (Startprompt für die KI – bitte komplett kopieren und als eure Zusammenarbeit beginnen)
 

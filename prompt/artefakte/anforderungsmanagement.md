@@ -1,4 +1,14 @@
-# Anforderungsmanagement
+---
+typ: artefakt
+name: Anforderungsmanagement
+kontext: Template zur strukturierten Erfassung, Dokumentation und Verwaltung von Anforderungen
+rollen:
+  - Product Owner
+artefakte: []
+workflows: []
+---
+
+# Artefakt: Anforderungsmanagement
 
 ## Über Anforderungsmanagement
 

@@ -1,4 +1,15 @@
-# Java-Projektstruktur und Dokumentation - Aufbau und Struktur
+---
+typ: artefakt
+name: Java-Projektstruktur
+kontext: Template zur Beschreibung der Struktur und Dokumentation von Java-Projekten mit Maven
+rollen:
+  - Softwarearchitekt
+  - Dev-Team
+artefakte: []
+workflows: []
+---
+
+# Artefakt: Java-Projektstruktur
 
 ## Über Java-Projektdokumentation
 

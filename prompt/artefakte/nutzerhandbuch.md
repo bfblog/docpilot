@@ -1,4 +1,14 @@
-# Nutzerhandbuch / Benutzerhandbuch - Aufbau und Struktur
+---
+typ: artefakt
+name: Nutzerhandbuch
+kontext: Template zur Erstellung benutzerfreundlicher Dokumentation für Endnutzer einer Software
+rollen:
+  - Product Owner
+artefakte: []
+workflows: []
+---
+
+# Artefakt: Nutzerhandbuch
 
 ## Über Nutzerhandbücher
 

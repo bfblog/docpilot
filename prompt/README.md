@@ -15,12 +15,16 @@ Diese Bibliothek enthält strukturierte Prompts für verschiedene Anwendungsfäl
 │   ├── dev-team.md              # Dev-Team
 │   ├── operations.md            # Operativer Betrieb
 │   └── clean-code-coach.md      # Clean Code Coach
-└── artefakte/                    # Artefakte und Vorlagen
-    ├── architecture-decision-record.md
-    ├── architektur_arc42.md
-    ├── java-projekt-struktur.md
-    ├── nutzerhandbuch.md
-    └── systemhandbuch.md
+├── artefakte/                   # Artefakte und Vorlagen
+│   ├── architecture-decision-record.md
+│   ├── anforderungsmanagement.md
+│   ├── architektur_arc42.md
+│   ├── feature-spezifikation.md
+│   ├── java-projekt-struktur.md
+│   ├── nutzerhandbuch.md
+│   └── systemhandbuch.md
+└── doc/                         # Bibliotheks-Dokumentation
+    └── artefakt-zusammenhaenge.md  # Erklärung der Artefakt-Zusammenhänge
 ```
 
 ## 🎯 Verwendung
@@ -101,6 +105,12 @@ Das Verzeichnis `artefakte/` enthält Vorlagen und Strukturen für verschiedene 
 - **systemhandbuch.md**: Vorlage für Systemhandbücher
 
 Diese Artefakte können als Vorlagen verwendet oder als Referenz für die Dokumentationsstruktur dienen.
+
+## 📚 Bibliotheks-Dokumentation
+
+Das Verzeichnis `doc/` enthält Dokumentation über die Bibliothek selbst:
+
+- **artefakt-zusammenhaenge.md**: Detaillierte Erklärung der Zusammenhänge zwischen Anforderungen, User Stories, Feature-Spezifikationen, Testplänen und anderen Artefakten
 
 ## 📝 Prompt-Entwicklung
 

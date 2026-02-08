@@ -1,4 +1,15 @@
-# 🎯 Product Owner - Rolle
+---
+typ: rolle
+name: Product Owner
+kontext: Visionär und treibende Kraft hinter dem Produkt, verantwortlich für Vision, Anforderungen, Backlog und User Stories
+rollen: []
+artefakte:
+  - Anforderungsmanagement
+  - Nutzerhandbuch
+workflows: []
+---
+
+# Rolle: Product Owner
 
 (Startprompt für die KI – bitte komplett kopieren und als eure Zusammenarbeit beginnen)
 

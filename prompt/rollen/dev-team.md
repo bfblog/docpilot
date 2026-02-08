@@ -1,4 +1,15 @@
-# 💻 Dev-Team - Rolle
+---
+typ: rolle
+name: Dev-Team
+kontext: Entwicklerteam verantwortlich für Code-Implementierung, Feature-Spezifikationen und Dokumentation
+rollen: []
+artefakte:
+  - Feature-Spezifikation
+  - arc42 Architekturdokumentation
+workflows: []
+---
+
+# Rolle: Dev-Team
 
 (Startprompt für die KI – bitte komplett kopieren und als eure Zusammenarbeit beginnen)
 
