@@ -8,6 +8,8 @@ Diese Dokumentation erklärt die Zusammenhänge zwischen Anforderungen, User Sto
 
 Basierend auf Stefan Zörners Buch "Softwarearchitekturen dokumentieren und kommunizieren" zeigt die folgende Abhängigkeitskette, wie verschiedene Dokumentationsmittel aufeinander aufbauen:
 
+Die **nummerierte Liste** unten ist eine **didaktisch linear verkürzte Lesereihenfolge** — gut, um den Einstieg zu strukturieren. Zörners **Metamodell** im Buch ist ein **Netz**: mehrere Mittel wirken **parallel und direkt** auf **Architekturentscheidungen** (z. B. Randbedingungen, technische Risiken, Qualitätsziele, Qualitätsszenarien). Die **Visualisierung weiter unten** folgt diesem Netz inklusive **beschrifteter Kanten** (entsprechend der Darstellung bei Zörner 2021).
+
 ### Die Abhängigkeitskette
 
 **1. Personas + Produktkarton → Systemkontext**
@@ -289,54 +291,61 @@ flowchart LR
 
 ### Visualisierung der Abhängigkeitskette
 
+Das Diagramm entspricht dem **Metamodell** (Zörner 2021): **Architekturentscheidung** als Zentralpunkt, **beschriftete Kanten** wie im Original. Abweichungen zur nummerierten Liste sind u. a.: **Randbedingungen** und **technische Risiken** wirken **direkt** auf die Entscheidung (nicht nur über die Lösungsstrategie); **Übergreifende Konzepte konkretisieren** die Entscheidung; **Schnittstellenbeschreibung** ist aus dem **Systemkontext** begründet, die **Bausteinsicht konkretisiert deren Nutzung**; **Verteilungssicht** zeigt das **Deployment der Bausteinsicht**.
+
 ```mermaid
-flowchart TD
-    A[Personas<br/>Produktkarton] --> B[Systemkontext]
-    B --> C[Qualitätsziele<br/>& Qualitätsszenarien]
-    D[Randbedingungen] --> E[Lösungsstrategie]
-    C --> E
-    F[Risiken] --> E
-    E --> G[Architekturentscheidungen<br/>ADRs]
-    G --> H[Bausteinsicht]
-    H --> I[Schnittstellenbeschreibungen]
-    H --> J[Laufzeitsicht]
-    G --> J
-    H --> K[Verteilungssicht]
-    J --> K
-    L[Übergreifende Konzepte<br/>Security, Logging, etc.] --> H
-    L --> J
-    L --> K
-    M[Glossar] --> A
-    M --> B
-    M --> C
-    M --> D
-    M --> E
-    M --> F
-    M --> G
-    M --> H
-    M --> I
-    M --> J
-    M --> K
-    M --> L
-    
-    style A fill:#e1f5ff
-    style B fill:#fff4e1
-    style C fill:#ffe1f5
-    style D fill:#ffffe1
-    style E fill:#e1ffe1
-    style F fill:#ffe1e1
-    style G fill:#f5e1ff
-    style H fill:#e1ffff
-    style I fill:#ffffe1
-    style J fill:#e1ffff
-    style K fill:#e1ffff
-    style L fill:#ffe1f5
-    style M fill:#e1f5ff
+flowchart TB
+    PE[Persona]
+    PK[Produktkarton]
+    SK[Systemkontext]
+    QZ[Qualitätsziele]
+    QS[Qualitätsszenarien]
+    LS[Lösungsstrategie]
+    UK[Übergreifendes Konzept]
+    RB[Randbedingungen]
+    TR[Technische Risiken]
+    AE[Architekturentscheidung]
+    BS[Bausteinsicht]
+    LZ[Laufzeitsicht]
+    VS[Verteilungssicht]
+    SB[Schnittstellenbeschreibung]
+
+    PK -->|macht lebendig| PE
+    PK -->|grenzt Inhalte ein| SK
+    PE -->|liefert Quellen und Auslöser für| QS
+    SK -->|liefert Quellen für| QS
+    QS -->|konkretisiert| QZ
+    QZ -->|klingen an in| PK
+
+    LS -->|adressiert| QZ
+    LS -->|verweist auf| UK
+    UK -->|konkretisiert| AE
+    LS -->|verweist auf| AE
+    QZ -->|leiten| AE
+    QS -->|machen bewertbar| AE
+    RB -->|schränken ein| AE
+    TR -->|treiben| AE
+
+    AE -->|setzt Eckpfeiler für| BS
+    AE -->|beeinflusst| VS
+    VS -->|zeigt Deployment von| BS
+    LZ -->|ergänzt um Dynamik| BS
+    BS -->|verfeinert| SK
+    SB -->|beschreibt Interaktionspunkte aus| SK
+    BS -->|konkretisiert Nutzung von| SB
+    LZ -->|nutzt API aus| SB
+
+    style AE fill:#f5e1ff
+    style BS fill:#e1ffff
+    style SK fill:#fff4e1
+    style UK fill:#ffe1f5
 ```
+
+**Glossar** (im Buch zu allen Mitteln gestrichelt angedeutet): klärt wichtige Begriffe **über** Persona, Produktkarton, Kontext, Qualität, Strategie, Entscheidungen und Sichten hinweg — im Diagramm weggelassen, um Lesbarkeit zu wahren.
 
 ### Kombiniertes Diagramm: arc42-Abhängigkeitskette + Praktischer Workflow
 
-Das folgende Diagramm zeigt, wie die arc42-Abhängigkeitskette mit unserem praktischen Workflow (Anforderungen → User Stories → Feature-Spezifikation → Tasks) zusammenhängt:
+Das folgende Diagramm zeigt, wie die arc42-Abhängigkeitskette mit unserem praktischen Workflow (Anforderungen → User Stories → Feature-Spezifikation → Tasks) zusammenhängt. Der **architektur-strukturelle** Teil bleibt dabei **weiterhin bewusst verkürzt** (lineare Leserichtung); für Zörners **vollständiges Metamodell** siehe die **Visualisierung der Abhängigkeitskette** oben.
 
 ```mermaid
 flowchart TD
