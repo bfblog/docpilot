@@ -17,12 +17,24 @@ Diese Bibliothek enthält strukturierte Prompts für verschiedene Anwendungsfäl
 │   └── clean-code-coach.md      # Clean Code Coach
 ├── artefakte/                   # Artefakte und Vorlagen
 │   ├── architecture-decision-record.md
+│   ├── architecture-inception-canvas.md
 │   ├── anforderungsmanagement.md
 │   ├── architektur_arc42.md
+│   ├── system-context-canvas.md
+│   ├── domain-bounded-context-canvas.md
+│   ├── architecture-building-blocks-canvas.md
+│   ├── integration-canvas.md
+│   ├── deployment-operations-canvas.md
+│   ├── evolution-roadmap-canvas.md
+│   ├── quality-attribute-canvas.md
+│   ├── risk-technical-debt-canvas.md
+│   ├── architecture-communication-canvas.md
 │   ├── feature-spezifikation.md
 │   ├── java-projekt-struktur.md
 │   ├── nutzerhandbuch.md
-│   └── systemhandbuch.md
+│   ├── systemhandbuch.md
+│   ├── tradeoff-canvas-produkt.md
+│   └── tradeoff-canvas-technik.md
 └── doc/                         # Bibliotheks-Dokumentation
     └── artefakt-zusammenhaenge.md  # Erklärung der Artefakt-Zusammenhänge
 ```
@@ -61,11 +73,23 @@ Der `_koordinator.md` ist die Hauptrolle, die alle anderen Rollen koordiniert.
 - Product Backlog verwalten und priorisieren
 - User Stories erstellen und strukturieren
 - Anforderungen aus Visionen ableiten
+- Produkt-Tradeoffs mit dem Tradeoff Canvas Produkt strukturieren
 
 #### Softwarearchitekt (`rollen/software-architect.md`)
+- Neue Vorhaben mit dem Architecture Inception Canvas strukturiert einordnen
+- Systemgrenzen und Umfeld mit dem System Context Canvas klären
+- Fachliche Grenzen mit dem Domain / Bounded Context Canvas (DDD) strukturieren
+- Innere Systemstruktur mit dem Architecture Building Blocks Canvas entwerfen
+- Integration mit dem Integration Canvas analysieren und strukturieren
+- Deployment und Betrieb mit dem Deployment / Operations Canvas strukturieren
+- Qualitätsanforderungen mit dem Quality Attribute Canvas priorisieren und als Szenarien konkretisieren
+- Risiken und technische Schuld mit dem Risk / Technical Debt Canvas erfassen und priorisieren
+- Architektur-Evolution mit dem Evolution / Roadmap Canvas schrittweise planen
+- Architektur mit dem Architecture Communication Canvas zielgruppengerecht vermitteln
 - Architektur nach Arc42 strukturieren und dokumentieren
 - Software Requirements Specifications (SRS) erstellen
 - Architecture Decision Records (ADR) dokumentieren
+- Technische Tradeoffs mit dem Tradeoff Canvas Technik strukturieren
 - Technische Konsistenz und Qualität sicherstellen
 
 #### Dev-Team (`rollen/dev-team.md`)
@@ -76,6 +100,7 @@ Der `_koordinator.md` ist die Hauptrolle, die alle anderen Rollen koordiniert.
 
 #### Operativer Betrieb (`rollen/operations.md`)
 - Betrieb überwachen und steuern
+- Deployment und operative Landschaft mit dem Deployment / Operations Canvas erfassen (mit Architektur)
 - Störungen frühzeitig erkennen
 - Probleme systematisch analysieren
 - Operationen (Start/Stop/Rollout) durchführen
@@ -99,6 +124,18 @@ Du kannst auch einzelne Rollen direkt verwenden:
 Das Verzeichnis `artefakte/` enthält Vorlagen und Strukturen für verschiedene Dokumentations-Artefakte:
 
 - **architecture-decision-record.md**: Vorlage für Architecture Decision Records (ADR)
+- **architecture-inception-canvas.md**: Hilfsvorlage für frühes gemeinsames Verständnis zu Vorhaben (Ziele, Stakeholder, Problem, Systemidee, Randbedingungen)
+- **system-context-canvas.md**: Hilfsvorlage für Systemkontext (Grenzen, Akteure, Nachbarsysteme, Schnittstellen, Datenflüsse)
+- **domain-bounded-context-canvas.md**: Hilfsvorlage für DDD — Bounded Contexts, Verantwortlichkeiten, Kontextbeziehungen, Sprachgrenzen
+- **architecture-building-blocks-canvas.md**: Hilfsvorlage für Bausteine, Schnittstellen, Daten-Ownership und Hotspots (arc42 / C4)
+- **integration-canvas.md**: Hilfsvorlage für Integration — Datenflüsse, Kopplung, Resilienz, Risiken
+- **deployment-operations-canvas.md**: Hilfsvorlage für Deployment, Betrieb, Skalierung, Monitoring, Resilienz
+- **evolution-roadmap-canvas.md**: Hilfsvorlage für Architektur-Evolution — Roadmap, Migration, Zwischenstufen
+- **quality-attribute-canvas.md**: Hilfsvorlage für Qualitätsattribute (NFR) — Priorisierung, Szenarien, Konflikte
+- **risk-technical-debt-canvas.md**: Hilfsvorlage für Risiken und technische Schuld — Bewertung, Maßnahmen, Priorisierung
+- **architecture-communication-canvas.md**: Hilfsvorlage für Architektur-Kommunikation — Zielgruppen, Kernbotschaften, Mittel
+- **tradeoff-canvas-produkt.md**: Hilfsvorlage für Produkt-Prioritäten und Abwägungen (Scope, Zeit, Wert, Risiko)
+- **tradeoff-canvas-technik.md**: Hilfsvorlage für technische Qualitäts- und Architektur-Tradeoffs (Vorstufe zu ADR)
 - **architektur_arc42.md**: Struktur für Arc42-Architektur-Dokumentation
 - **java-projekt-struktur.md**: Struktur für Java-Projekte
 - **nutzerhandbuch.md**: Vorlage für Benutzerhandbücher

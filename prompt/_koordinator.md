@@ -32,7 +32,7 @@ Die Prompt-Bibliothek ist ein **Baukasten** für die Erstellung von Projektdokum
 - **Inhalt:** Templates/Vorlagen mit Format, Struktur und Inhalten (Platzhalter `[HIER: ...]`, Anweisungen `Zu dokumentieren:`)
 - **Zweck:** Definieren, welche Dokumente erstellt werden und wie sie strukturiert sind
 - **Redundanz-Vermeidung:** Ein Artefakt (z.B. arc42) ist einmal definiert und kann von mehreren Rollen referenziert werden
-- **Beispiele:** arc42 Architekturdokumentation, Feature-Spezifikation, ADR, Nutzerhandbuch
+- **Beispiele:** arc42 Architekturdokumentation, Architecture Inception Canvas, System Context Canvas, Domain Bounded Context Canvas, Architecture Building Blocks Canvas, Integration Canvas, Deployment Operations Canvas, Quality Attribute Canvas, Risk Technical Debt Canvas, Evolution Roadmap Canvas, Architecture Communication Canvas, Feature-Spezifikation, ADR, Tradeoff Canvas Produkt/Technik, Nutzerhandbuch
 - **Verwendung:** Rollen verweisen auf Artefakte (z.B. bei WAS), KI lädt Artefakt und verwendet Struktur als Vorlage
 
 **3. Workflows** (`{PROMPT}/workflows/` - zukünftig geplant)
@@ -171,15 +171,28 @@ Du kennst die zentrale Dokumentationsstruktur (verwende Platzhalter aus dem Mapp
     │   ├── software-architect.md       # Softwarearchitekt
     │   ├── dev-team.md                 # Dev-Team
     │   ├── operations.md               # Operativer Betrieb
-    │   └── clean-code-coach.md         # Clean Code Coach
+    │   ├── clean-code-coach.md         # Clean Code Coach
+    │   └── copywriter.md               # Copywriter (Social-Media-Marketing)
     └── artefakte/                      # Artefakte und Vorlagen
         ├── architecture-decision-record.md
+        ├── architecture-inception-canvas.md
         ├── anforderungsmanagement.md
         ├── architektur_arc42.md
+        ├── system-context-canvas.md
+        ├── domain-bounded-context-canvas.md
+        ├── architecture-building-blocks-canvas.md
+        ├── integration-canvas.md
+        ├── deployment-operations-canvas.md
+        ├── evolution-roadmap-canvas.md
+        ├── quality-attribute-canvas.md
+        ├── risk-technical-debt-canvas.md
+        ├── architecture-communication-canvas.md
         ├── feature-spezifikation.md
         ├── java-projekt-struktur.md
         ├── nutzerhandbuch.md
-        └── systemhandbuch.md
+        ├── systemhandbuch.md
+        ├── tradeoff-canvas-produkt.md
+        └── tradeoff-canvas-technik.md
 ```
 
 ### Artefakt-Workflow
@@ -217,9 +230,21 @@ graph LR
     PO[Product Owner] --> V[Vision]
     PO --> R[Anforderungen]
     PO --> US[User Stories]
+    PO --> TCPP[Tradeoff Canvas Produkt]
     
     SA[Software Architect] --> ARC[arc42 Architektur]
+    SA --> SCC[System Context Canvas]
+    SA --> DBC[Domain Bounded Context Canvas]
+    SA --> ABB[Architecture Building Blocks Canvas]
+    SA --> INT[Integration Canvas]
+    SA --> DPO[Deployment Operations Canvas]
+    SA --> QAC[Quality Attribute Canvas]
+    SA --> RTD[Risk Technical Debt Canvas]
+    SA --> ERV[Evolution Roadmap Canvas]
+    SA --> ACC[Architecture Communication Canvas]
+    SA --> AIC[Architecture Inception Canvas]
     SA --> ADR[Architecture Decision Records]
+    SA --> TCPT[Tradeoff Canvas Technik]
     SA --> FS[Feature-Spezifikation<br/>mit Team]
     
     DT[Dev Team] --> FS
@@ -228,6 +253,7 @@ graph LR
     
     OPS[Operations] --> SH[Systemhandbuch]
     OPS --> OH[Betriebshandbuch]
+    OPS --> DPO
     
     PO --> NH[Nutzerhandbuch]
     
@@ -253,6 +279,46 @@ graph TD
     FS -->|folgt| ARC[arc42 Leitplanken]
     ARC -->|enthält| ADR
     
+    TCPP[Tradeoff Canvas Produkt] -->|stützt Priorisierung| R
+    TCPT[Tradeoff Canvas Technik] -->|Vorentscheid zu| ADR
+    AIC[Architecture Inception Canvas] -->|Grundlage| R
+    AIC -->|orientiert| ARC
+    SCC[System Context Canvas] -->|Kontext für| ARC
+    SCC -->|informiert| R
+    SCC -->|oft Vorstufe| DBC[Domain Bounded Context Canvas]
+    DBC -->|fachliche Aufteilung für| ARC
+    DBC -->|oft Input für| ABB[Architecture Building Blocks Canvas]
+    DBC -->|unterstützt| FS
+    ABB -->|Bausteinsicht für| ARC
+    ABB -->|Leitplanke für| FS
+    SCC -->|Nachbarn & Flüsse| INT[Integration Canvas]
+    ABB -->|Schnittstellen vertiefen| INT
+    INT -->|Laufzeit & Schnittstellen| ARC
+    INT -->|Muster & Protokoll| ADR
+    INT -->|Betriebs-Folgen| DPO[Deployment Operations Canvas]
+    ABB -->|Läuft wo| DPO
+    DPO -->|Verteilung & Betrieb| ARC
+    DPO --> SH[Systemhandbuch]
+    R -->|NFR-Input| QAC[Quality Attribute Canvas]
+    AIC -->|Ziele & Rahmen| QAC
+    QAC -->|Qualitätsziele| ARC
+    QAC -->|SLO/SLA| DPO
+    QAC -->|Zielkonflikte| TCPT
+    QAC -->|Nichterreichen / Risiko| RTD[Risk Technical Debt Canvas]
+    INT -->|Integrationsrisiken| RTD
+    FS -->|Umsetzung & Schuld| RTD
+    AIC -->|früh sichtbar| RTD
+    RTD -->|Risiken & Schuld| ARC
+    RTD -->|Strategie| ADR
+    ARC -->|Ist-Stand| ERV[Evolution Roadmap Canvas]
+    RTD -->|Schulden & Druck| ERV
+    AIC -->|Ziel & Rahmen| ERV
+    ERV -->|Meilensteine| ADR
+    ERV -->|aktualisiert| ARC
+    ERV -->|liefert in| FS
+    ARC -->|Vermittlung planen| ACC[Architecture Communication Canvas]
+    SCC -->|Kontext-Story| ACC
+    
     R -->|verknüpft mit| US
     US -->|verknüpft mit| FS
     FS -->|verknüpft mit| T
@@ -269,6 +335,18 @@ graph TD
     style C fill:#ffe1e1
     style ADR fill:#ffffe1
     style ARC fill:#e1ffff
+    style TCPP fill:#e1f5ff
+    style TCPT fill:#fff4e1
+    style AIC fill:#e8f4e8
+    style SCC fill:#ddeeff
+    style DBC fill:#f0e6ff
+    style ABB fill:#ffe6cc
+    style INT fill:#cce5ff
+    style QAC fill:#fff0cc
+    style RTD fill:#ffd6d6
+    style ACC fill:#e8e8f8
+    style DPO fill:#d4edda
+    style ERV fill:#fffacd
 ```
 
 Siehe auch: `{PROMPT}/doc/artefakt-zusammenhaenge.md`
@@ -284,6 +362,7 @@ Siehe auch: `{PROMPT}/doc/artefakt-zusammenhaenge.md`
 - **dev-team**: Dev-Team für Code-Entwicklung, Dokumentation, Pull Requests
 - **operations**: Operativer Betrieb für Betrieb, Monitoring, Fehleranalyse
 - **clean-code-coach**: Clean Code Coach für Code-Qualität, Code-Reviews und Refactoring
+- **copywriter**: Copywriter für Social-Media-Marketing, Postings, Beiträge und Kampagnen
 
 ### Artefakt-Verwaltung
 
@@ -302,6 +381,18 @@ Artefakte beschreiben **Ausgabeformate** - also Dateien, Ordner und Strukturen, 
 - **architektur_arc42.md**: Template für arc42 Architekturdokumentation (Format: 12 Kapitel, Inhalt: Bausteinsicht, Laufzeitsicht, etc.)
 - **feature-spezifikation.md**: Template für Feature-Spezifikationen (Format: Metadaten, Technische Anforderungen, etc.)
 - **architecture-decision-record.md**: Template für ADRs (Format: Context, Optionen, Entscheidung, Konsequenzen)
+- **architecture-inception-canvas.md**: Hilfsvorlage für frühes gemeinsames Verständnis (Ziele, Stakeholder, Problem, Systemidee, Randbedingungen) vor Detailarchitektur
+- **system-context-canvas.md**: Hilfsvorlage für Systemgrenze, Akteure, Nachbarsysteme, Schnittstellen und Datenflüsse (Kontextebene, kein Innenleben)
+- **domain-bounded-context-canvas.md**: Hilfsvorlage für DDD — Domänen, Bounded Contexts, Beziehungen, Ubiquitous Language (fachlich, keine vorschnelle Service-Aufteilung)
+- **architecture-building-blocks-canvas.md**: Hilfsvorlage für innere Systemstruktur — Bausteine, Schnittstellen, Daten-Ownership, Abhängigkeiten, Hotspots (arc42 Bausteinsicht / C4)
+- **integration-canvas.md**: Hilfsvorlage für Systemintegration — Partner, Integrationsarten, Datenflüsse, Kopplung, Resilienz, Risiken
+- **deployment-operations-canvas.md**: Hilfsvorlage für Deployment, Skalierung, Monitoring, Verfügbarkeit, Betriebsaufwand und betriebliche Risiken
+- **evolution-roadmap-canvas.md**: Hilfsvorlage für schrittweise Architekturentwicklung — Ist, Ziel, Zwischenstufen, Migration, Abhängigkeiten
+- **quality-attribute-canvas.md**: Hilfsvorlage für Qualitätsattribute (NFR) — Priorisierung, Szenarien, Zielkonflikte, Risiken (arc42 Qualitätsziele)
+- **risk-technical-debt-canvas.md**: Hilfsvorlage für Risiken (technisch, organisatorisch, Integration) und technische Schuld — Impact, Maßnahmen, Priorisierung
+- **architecture-communication-canvas.md**: Hilfsvorlage für zielgruppengerechte Architektur-Kommunikation — Botschaften, Sichten, Mittel, Vereinfachung
+- **tradeoff-canvas-produkt.md**: Hilfsvorlage für Produkt-Prioritäten und bewusste Abstriche (Scope, Zeit, Wert, Risiko)
+- **tradeoff-canvas-technik.md**: Hilfsvorlage für technische Qualitäts- und Architektur-Tradeoffs; typische Vorstufe zu ADR
 - **nutzerhandbuch.md**: Template für Nutzerhandbücher (Format: Kapitelstruktur, Inhalt: Funktionen, Anleitungen)
 - **systemhandbuch.md**: Template für Systemhandbücher (Format: Operative Dokumentation, Inhalt: Komponenten, Monitoring, etc.)
 

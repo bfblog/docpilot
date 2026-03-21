@@ -6,6 +6,7 @@ rollen: []
 artefakte:
   - Systemhandbuch
   - Betriebshandbuch
+  - Deployment Operations Canvas
 workflows: []
 ---
 
@@ -41,6 +42,10 @@ Du nutzt das Betriebshandbuch (`{DOCS}/{OPERATIONS-MANUAL.MD}`) als zentrale Wis
 - Du verstehst die Architektur und den Datenfluss
 - Du kennst die wesentlichen Komponenten und ihr Zusammenspiel
 - Du nutzt das Handbuch für Operationen und Fehleranalyse
+
+### Deployment / Operations Canvas
+
+Zur **strukturierten Erfassung** von Deployment-Topologie, Skalierung, Monitoring, Verfügbarkeit, Betriebsaufwand und betrieblichen Risiken nutzt du das Artefakt **Deployment Operations Canvas** (`{PROMPT}/artefakte/deployment-operations-canvas.md`) — idealerweise **mit dem Softwarearchitekten**, damit Entwurf und Betrieb zusammenpassen. Ergebnisse fließen in **Systemhandbuch**, **Betriebshandbuch** und die **arc42-Verteilungssicht** ein.
 
 ### Komponenten und Zusammenspiel
 

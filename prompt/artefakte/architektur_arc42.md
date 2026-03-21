@@ -6,6 +6,7 @@ rollen:
   - Softwarearchitekt
 artefakte:
   - ADR
+  - Architecture Communication Canvas
   - Feature-Spezifikation
   - SRS
 workflows: []
@@ -52,6 +53,93 @@ Dieses Artefakt ist ein **Template/Ablageort** für deine Architekturdokumentati
 - Softwarearchitekten, die eine Architektur dokumentieren
 - Entwicklerteams, die ihre Architektur strukturiert erfassen wollen
 - Projekte, die eine vollständige Architekturdokumentation benötigen
+
+---
+
+## Dokumentationsstruktur: Modulare Kapitel
+
+**Wichtig:** Die arc42 Architekturdokumentation kann als einzelne Datei oder als modulare Struktur mit separaten Kapiteldateien organisiert werden.
+
+### Modulare Struktur (empfohlen)
+
+**Prinzip:** Jedes Hauptkapitel wird in eine eigene Markdown-Datei gelegt. Dies verbessert:
+- **Wartbarkeit:** Einzelne Kapitel können unabhängig bearbeitet werden
+- **Übersichtlichkeit:** Kleinere Dateien sind leichter zu navigieren
+- **Kollaboration:** Mehrere Personen können parallel an verschiedenen Kapiteln arbeiten
+- **Versionierung:** Änderungen sind besser nachvollziehbar
+
+**Verzeichnisstruktur:**
+```
+architektur/
+├── README.md                    # Übersicht und Navigation zu allen Kapiteln
+├── 01-einfuehrung.md            # Kapitel 1: Einführung und Ziele
+├── 02-randbedingungen.md        # Kapitel 2: Randbedingungen
+├── 03-kontext.md                # Kapitel 3: Kontextabgrenzung
+├── 04-loesungsstrategie.md      # Kapitel 4: Lösungsstrategie
+├── 05-bausteinsicht.md          # Kapitel 5: Bausteinsicht
+├── 06-laufzeitsicht.md          # Kapitel 6: Laufzeitsicht
+├── 07-verteilungssicht.md       # Kapitel 7: Verteilungssicht
+├── 08-querschnittliche-konzepte.md  # Kapitel 8: Querschnittliche Konzepte
+├── 09-architekturentscheidungen.md  # Kapitel 9: Architekturentscheidungen
+├── 10-qualitaetsszenarien.md    # Kapitel 10: Qualitätsanforderungen
+├── 11-risiken.md                # Kapitel 11: Risiken und technische Schulden
+└── 12-glossar.md                # Kapitel 12: Glossar
+```
+
+**Benennungskonvention:**
+- Dateinamen: `[Nummer]-[kapitelname].md` (z.B. `03-kontext.md`)
+- Kleingeschrieben, Bindestriche statt Leerzeichen
+- Nummerierung entspricht arc42-Kapitelnummern
+
+**Verweise zwischen Kapiteln:**
+- Verwende Markdown-Hyperlinks für Verweise zwischen Kapiteln
+- Format: `[Link-Text]([dateiname].md#abschnitt)` oder `[Link-Text]([dateiname].md)`
+- Beispiel: `Siehe [Kapitel 5: Bausteinsicht](05-bausteinsicht.md) für Details zu den Komponenten.`
+- Beispiel: `Die Qualitätsziele werden in [Kapitel 1.2](01-einfuehrung.md#12-qualitaetsziele) definiert.`
+
+**README.md als Navigation:**
+Die `README.md` sollte eine Übersicht aller Kapitel mit Links enthalten:
+```markdown
+# Architekturdokumentation: [Projektname]
+
+## Inhaltsverzeichnis
+
+1. [Einführung und Ziele](01-einfuehrung.md)
+2. [Randbedingungen](02-randbedingungen.md)
+3. [Kontextabgrenzung](03-kontext.md)
+4. [Lösungsstrategie](04-loesungsstrategie.md)
+5. [Bausteinsicht](05-bausteinsicht.md)
+6. [Laufzeitsicht](06-laufzeitsicht.md)
+7. [Verteilungssicht](07-verteilungssicht.md)
+8. [Querschnittliche Konzepte](08-querschnittliche-konzepte.md)
+9. [Architekturentscheidungen](09-architekturentscheidungen.md)
+10. [Qualitätsanforderungen](10-qualitaetsszenarien.md)
+11. [Risiken und technische Schulden](11-risiken.md)
+12. [Glossar](12-glossar.md)
+```
+
+### Einzelne Datei (Alternative)
+
+Für kleine Projekte oder initiale Dokumentation kann auch eine einzelne Datei `architektur.md` verwendet werden. Diese kann später in die modulare Struktur aufgeteilt werden.
+
+**Wachstumsprinzip:**
+- **Start:** Einzelne Datei `architektur.md` mit ersten Kapiteln
+- **Bei Bedarf:** Aufteilen in modulare Struktur `architektur/` mit separaten Kapiteldateien
+- **Entscheidung:** Basierend auf Größe, Komplexität und Teamgröße
+
+### Empfehlung für KI-gestützte Dokumentation
+
+**Bei modularem Ansatz:**
+- Erstelle nur die Kapiteldateien, für die bereits Informationen vorhanden sind
+- Verwende Hyperlinks für Verweise zwischen Kapiteln (auch wenn Zielkapitel noch nicht existiert)
+- Erstelle eine `README.md` mit Navigation zu allen existierenden Kapiteln
+- Ergänze neue Kapiteldateien iterativ, wenn Informationen verfügbar werden
+
+**Beispiel-Workflow:**
+1. Starte mit `README.md` und ersten Kapiteln (z.B. `01-einfuehrung.md`, `03-kontext.md`)
+2. Erstelle weitere Kapiteldateien, wenn Informationen verfügbar sind
+3. Aktualisiere `README.md` mit Links zu neuen Kapiteln
+4. Verwende Hyperlinks in Kapiteln für Verweise (z.B. `Siehe [Kapitel 5](05-bausteinsicht.md) für Details`)
 
 ---
 
