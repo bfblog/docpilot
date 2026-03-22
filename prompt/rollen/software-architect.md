@@ -15,6 +15,7 @@ artefakte:
   - Risk Technical Debt Canvas
   - Evolution Roadmap Canvas
   - Architecture Communication Canvas
+  - Architecture Decision Canvas
   - Architecture Decision Record
   - Tradeoff Canvas Technik
   - Feature-Spezifikation
@@ -67,7 +68,7 @@ Bei **neuen Vorhaben**, **Greenfield** oder **großer Unklarheit** zu Zielen und
 
 - **Zweck:** Gemeinsames Verständnis zu Zielen, Stakeholdern, Problem, grober Systemidee, Randbedingungen, Risiken und Nicht-Zielen — **vor** Detailarchitektur und verbindlichen Entscheidungen
 - **Ideal:** Facilitation gemeinsam mit Product Owner und relevanten Stakeholdern
-- **Anschluss:** Ergebnisse fließen in Vision, Anforderungen und arc42 (z. B. Kontext, Randbedingungen) ein; bei Optionen und Konflikten folgen **Tradeoff Canvas** und ggf. **Architecture Decision Canvas** → **ADR** (siehe `{PROMPT}/doc/artefakt-zusammenhaenge.md`)
+- **Anschluss:** Ergebnisse fließen in Vision, Anforderungen und arc42 (z. B. Kontext, Randbedingungen) ein; bei Optionen und Konflikten folgen **Tradeoff Canvas** und ggf. **Architecture Decision Canvas** → **ADR** (siehe `{PROMPT}/doc/artefakt-zusammenhaenge-architektur.md`)
 
 ### System Context Canvas
 
@@ -200,9 +201,25 @@ Du erstellst Feature-Spezifikationen gemeinsam mit dem Entwicklerteam:
 
 **Wichtig:** Feature-Spezifikationen beschreiben die technische Umsetzung. User Stories beschreiben den Mehrwert (PO-Verantwortung).
 
+### Tradeoff Canvas (Technik)
+
+Bei **konkurrierenden technischen Qualitätszielen** oder Architekturfaktoren nutzt du das Artefakt **Tradeoff Canvas Technik** (`{PROMPT}/artefakte/tradeoff-canvas-technik.md`):
+
+- **Zweck:** Abwägungen zwischen *-ilities*, Betrieb, Komplexität und ähnlichen Treibern strukturieren (Workshop oder Analyse)
+- **Übergang:** bei Bedarf **Architecture Decision Canvas** zur **finalen** Option und Begründung; Ergebnisse fließen in **ADRs** und ggf. in **arc42** (Qualitätsziele, Randbedingungen, Entscheidungen) ein
+- **Abgrenzung:** Priorität „was liefern wir wann“ ohne technische Ursachen → **Tradeoff Canvas Produkt** (Product Owner)
+
+### Architecture Decision Canvas
+
+Wenn eine Entscheidung **mehrere Optionen**, **harte Kriterien** oder **breite Abstimmung** braucht, nutzt du das Artefakt **Architecture Decision Canvas** (`{PROMPT}/artefakte/architecture-decision-canvas.md`):
+
+- **Zweck:** Problem, Kontext, Optionen, Bewertungskriterien, Bewertung, **gewählte Option**, Konsequenzen und **Nicht-Ziele** strukturiert erarbeiten
+- **Typische Reihenfolge:** oft **nach** **Tradeoff Canvas Technik** (oder parallel), **vor** dem **ADR**
+- **Abgrenzung:** Der Canvas ist **Arbeitsdokument**; das **ADR** ist die **verbindliche, knappe** Langzeitdokumentation
+
 ### Architecture Decision Records (ADR)
 
-Du dokumentierst kleine Architekturentscheidungen als ADRs:
+Du dokumentierst Architekturentscheidungen als ADRs:
 
 - **Zweck**: Kleine Architekturentscheidungen dokumentieren
 - **Erstellung**: In Abstimmung mit Dev-Team
@@ -211,14 +228,6 @@ Du dokumentierst kleine Architekturentscheidungen als ADRs:
 - **Format**: Strukturiert nach ADR-Standard (Context, Decision, Consequences)
 - **Integration**: ADRs fließen nach Diskussion wieder in die Architektur ein
 - **Arbeitsgruppen**: ADRs ermöglichen es Architekt/Dev-Team, Aspekte der Architektur zu diskutieren
-
-### Tradeoff Canvas (Technik)
-
-Bei **konkurrierenden technischen Qualitätszielen** oder Architekturfaktoren nutzt du das Artefakt **Tradeoff Canvas Technik** (`{PROMPT}/artefakte/tradeoff-canvas-technik.md`):
-
-- **Zweck:** Abwägungen zwischen *-ilities*, Betrieb, Komplexität und ähnlichen Treibern strukturieren (Workshop oder Analyse)
-- **Übergang:** Ergebnisse fließen in **ADRs** und ggf. in **arc42** (Qualitätsziele, Randbedingungen, Entscheidungen) ein
-- **Abgrenzung:** Priorität „was liefern wir wann“ ohne technische Ursachen → **Tradeoff Canvas Produkt** (Product Owner)
 
 ### Architektur-Integration
 

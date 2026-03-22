@@ -16,6 +16,7 @@ Diese Bibliothek enthält strukturierte Prompts für verschiedene Anwendungsfäl
 │   ├── operations.md            # Operativer Betrieb
 │   └── clean-code-coach.md      # Clean Code Coach
 ├── artefakte/                   # Artefakte und Vorlagen
+│   ├── architecture-decision-canvas.md
 │   ├── architecture-decision-record.md
 │   ├── architecture-inception-canvas.md
 │   ├── anforderungsmanagement.md
@@ -36,7 +37,9 @@ Diese Bibliothek enthält strukturierte Prompts für verschiedene Anwendungsfäl
 │   ├── tradeoff-canvas-produkt.md
 │   └── tradeoff-canvas-technik.md
 └── doc/                         # Bibliotheks-Dokumentation
-    └── artefakt-zusammenhaenge.md  # Erklärung der Artefakt-Zusammenhänge
+    ├── artefakt-zusammenhaenge.md            # Übersicht: Architektur vs. Delivery
+    ├── artefakt-zusammenhaenge-architektur.md
+    └── artefakt-zusammenhaenge-delivery.md   # Lieferkette & Tests (kompakt)
 ```
 
 ## 🎯 Verwendung
@@ -89,6 +92,7 @@ Der `_koordinator.md` ist die Hauptrolle, die alle anderen Rollen koordiniert.
 - Architektur nach Arc42 strukturieren und dokumentieren
 - Software Requirements Specifications (SRS) erstellen
 - Architecture Decision Records (ADR) dokumentieren
+- Architekturentscheidungen mit dem Architecture Decision Canvas strukturieren (vor dem ADR)
 - Technische Tradeoffs mit dem Tradeoff Canvas Technik strukturieren
 - Technische Konsistenz und Qualität sicherstellen
 
@@ -123,6 +127,7 @@ Du kannst auch einzelne Rollen direkt verwenden:
 
 Das Verzeichnis `artefakte/` enthält Vorlagen und Strukturen für verschiedene Dokumentations-Artefakte:
 
+- **architecture-decision-canvas.md**: Hilfsvorlage für strukturierte Architekturentscheidungen (Optionen, Kriterien, Bewertung, Konsequenzen; typisch vor dem ADR)
 - **architecture-decision-record.md**: Vorlage für Architecture Decision Records (ADR)
 - **architecture-inception-canvas.md**: Hilfsvorlage für frühes gemeinsames Verständnis zu Vorhaben (Ziele, Stakeholder, Problem, Systemidee, Randbedingungen)
 - **system-context-canvas.md**: Hilfsvorlage für Systemkontext (Grenzen, Akteure, Nachbarsysteme, Schnittstellen, Datenflüsse)
@@ -147,7 +152,9 @@ Diese Artefakte können als Vorlagen verwendet oder als Referenz für die Dokume
 
 Das Verzeichnis `doc/` enthält Dokumentation über die Bibliothek selbst:
 
-- **artefakt-zusammenhaenge.md**: Detaillierte Erklärung der Zusammenhänge zwischen Anforderungen, User Stories, Feature-Spezifikationen, Testplänen und anderen Artefakten
+- **artefakt-zusammenhaenge.md**: Übersicht mit Links zu Architektur- und Delivery-Teil
+- **artefakt-zusammenhaenge-architektur.md**: arc42, Canvas, Entscheidungsketten, Metamodell-Visualisierung
+- **artefakt-zusammenhaenge-delivery.md**: Lieferkette (REQ → Story → Feature → Tasks → Code), Tests, Rückverfolgbarkeit (kompakt)
 
 ## 📝 Prompt-Entwicklung
 

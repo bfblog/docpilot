@@ -23,7 +23,7 @@ Der **Architecture Inception Canvas** strukturiert die **frühe Klärung** eines
 **Abgrenzung:**
 
 - **Kein Ersatz** für arc42, ADR oder Feature-Spezifikation — sondern **Input** und **Alignment** davor.
-- **Tradeoff Canvas** und **Architecture Decision Canvas** greifen typisch **danach**, wenn Optionen und Entscheidungen im Fokus stehen (siehe `{PROMPT}/doc/artefakt-zusammenhaenge.md`).
+- **Tradeoff Canvas** und **Architecture Decision Canvas** greifen typisch **danach**, wenn Optionen und Entscheidungen im Fokus stehen (siehe `{PROMPT}/doc/artefakt-zusammenhaenge-architektur.md`).
 
 ---
 

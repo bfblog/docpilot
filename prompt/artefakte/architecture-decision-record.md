@@ -5,6 +5,8 @@ kontext: Template zur Dokumentation wichtiger Architekturentscheidungen mit Cont
 rollen:
   - Softwarearchitekt
 artefakte:
+  - Architecture Decision Canvas
+  - Tradeoff Canvas Technik
   - arc42 Architekturdokumentation
 workflows: []
 ---

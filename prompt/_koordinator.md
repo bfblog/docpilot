@@ -32,7 +32,7 @@ Die Prompt-Bibliothek ist ein **Baukasten** für die Erstellung von Projektdokum
 - **Inhalt:** Templates/Vorlagen mit Format, Struktur und Inhalten (Platzhalter `[HIER: ...]`, Anweisungen `Zu dokumentieren:`)
 - **Zweck:** Definieren, welche Dokumente erstellt werden und wie sie strukturiert sind
 - **Redundanz-Vermeidung:** Ein Artefakt (z.B. arc42) ist einmal definiert und kann von mehreren Rollen referenziert werden
-- **Beispiele:** arc42 Architekturdokumentation, Architecture Inception Canvas, System Context Canvas, Domain Bounded Context Canvas, Architecture Building Blocks Canvas, Integration Canvas, Deployment Operations Canvas, Quality Attribute Canvas, Risk Technical Debt Canvas, Evolution Roadmap Canvas, Architecture Communication Canvas, Feature-Spezifikation, ADR, Tradeoff Canvas Produkt/Technik, Nutzerhandbuch
+- **Beispiele:** arc42 Architekturdokumentation, Architecture Inception Canvas, System Context Canvas, Domain Bounded Context Canvas, Architecture Building Blocks Canvas, Integration Canvas, Deployment Operations Canvas, Quality Attribute Canvas, Risk Technical Debt Canvas, Evolution Roadmap Canvas, Architecture Communication Canvas, Feature-Spezifikation, Architecture Decision Canvas, ADR, Tradeoff Canvas Produkt/Technik, Nutzerhandbuch
 - **Verwendung:** Rollen verweisen auf Artefakte (z.B. bei WAS), KI lädt Artefakt und verwendet Struktur als Vorlage
 
 **3. Workflows** (`{PROMPT}/workflows/` - zukünftig geplant)
@@ -174,6 +174,7 @@ Du kennst die zentrale Dokumentationsstruktur (verwende Platzhalter aus dem Mapp
     │   ├── clean-code-coach.md         # Clean Code Coach
     │   └── copywriter.md               # Copywriter (Social-Media-Marketing)
     └── artefakte/                      # Artefakte und Vorlagen
+        ├── architecture-decision-canvas.md
         ├── architecture-decision-record.md
         ├── architecture-inception-canvas.md
         ├── anforderungsmanagement.md
@@ -243,6 +244,7 @@ graph LR
     SA --> ERV[Evolution Roadmap Canvas]
     SA --> ACC[Architecture Communication Canvas]
     SA --> AIC[Architecture Inception Canvas]
+    SA --> ADC[Architecture Decision Canvas]
     SA --> ADR[Architecture Decision Records]
     SA --> TCPT[Tradeoff Canvas Technik]
     SA --> FS[Feature-Spezifikation<br/>mit Team]
@@ -280,7 +282,8 @@ graph TD
     ARC -->|enthält| ADR
     
     TCPP[Tradeoff Canvas Produkt] -->|stützt Priorisierung| R
-    TCPT[Tradeoff Canvas Technik] -->|Vorentscheid zu| ADR
+    TCPT[Tradeoff Canvas Technik] -->|Ausarbeitung| ADC[Architecture Decision Canvas]
+    ADC -->|Ergebnis in| ADR
     AIC[Architecture Inception Canvas] -->|Grundlage| R
     AIC -->|orientiert| ARC
     SCC[System Context Canvas] -->|Kontext für| ARC
@@ -337,6 +340,7 @@ graph TD
     style ARC fill:#e1ffff
     style TCPP fill:#e1f5ff
     style TCPT fill:#fff4e1
+    style ADC fill:#ffe8cc
     style AIC fill:#e8f4e8
     style SCC fill:#ddeeff
     style DBC fill:#f0e6ff
@@ -349,7 +353,7 @@ graph TD
     style ERV fill:#fffacd
 ```
 
-Siehe auch: `{PROMPT}/doc/artefakt-zusammenhaenge.md`
+Siehe auch: `{PROMPT}/doc/artefakt-zusammenhaenge.md` (Übersicht), `{PROMPT}/doc/artefakt-zusammenhaenge-architektur.md` (Architektur & Canvas), `{PROMPT}/doc/artefakt-zusammenhaenge-delivery.md` (Lieferkette & Tests)
 
 ### Rollen-Verwaltung
 
@@ -380,6 +384,7 @@ Artefakte beschreiben **Ausgabeformate** - also Dateien, Ordner und Strukturen, 
 
 - **architektur_arc42.md**: Template für arc42 Architekturdokumentation (Format: 12 Kapitel, Inhalt: Bausteinsicht, Laufzeitsicht, etc.)
 - **feature-spezifikation.md**: Template für Feature-Spezifikationen (Format: Metadaten, Technische Anforderungen, etc.)
+- **architecture-decision-canvas.md**: Hilfsvorlage für strukturierte Architekturentscheidungen — Optionen, Kriterien, Bewertung, Konsequenzen, Nicht-Ziele (typisch vor dem ADR)
 - **architecture-decision-record.md**: Template für ADRs (Format: Context, Optionen, Entscheidung, Konsequenzen)
 - **architecture-inception-canvas.md**: Hilfsvorlage für frühes gemeinsames Verständnis (Ziele, Stakeholder, Problem, Systemidee, Randbedingungen) vor Detailarchitektur
 - **system-context-canvas.md**: Hilfsvorlage für Systemgrenze, Akteure, Nachbarsysteme, Schnittstellen und Datenflüsse (Kontextebene, kein Innenleben)

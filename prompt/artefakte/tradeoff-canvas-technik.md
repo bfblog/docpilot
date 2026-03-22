@@ -6,6 +6,7 @@ rollen:
   - Softwarearchitekt
 artefakte:
   - Tradeoff Canvas Produkt
+  - Architecture Decision Canvas
   - Architecture Decision Record
   - arc42 Architekturdokumentation
 workflows: []
@@ -122,6 +123,7 @@ Zu dokumentieren:
 
 - **Messbar machen**, wo möglich (z. B. P95-Latenz, Verfügbarkeit in %, RTO/RPO)
 - **Eine Frage pro Canvas**; bei mehreren unabhängigen Themen trennen
+- Bei **komplexen** oder **teamübergreifenden** Entscheidungen: vor dem ADR den **Architecture Decision Canvas** (`architecture-decision-canvas.md`) nutzen — bei kleinen, klaren Themen reicht oft direkt ein **ADR**
 - Nach Team-Alignment: **ADR** mit Status „Vorgeschlagen“ oder „Akzeptiert“ erstellen
 - Wenn die Konfliktlinie primär **Produkt** ist (was liefern wir wann), zuerst **Tradeoff Canvas Produkt** klären
 

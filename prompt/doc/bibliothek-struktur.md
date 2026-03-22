@@ -118,9 +118,12 @@ prompt/
 │   └── software-architect.md
 ├── artefakte/
 │   ├── feature-spezifikation.md
+│   ├── architecture-decision-canvas.md
 │   └── architecture-decision-record.md
 └── doc/
-    └── artefakt-zusammenhaenge.md
+    ├── artefakt-zusammenhaenge.md
+    ├── artefakt-zusammenhaenge-architektur.md
+    └── artefakt-zusammenhaenge-delivery.md
 ```
 
 **Cursor.AI kann:**
@@ -138,7 +141,7 @@ prompt/
 ```python
 # Cursor.AI kann semantisch suchen:
 codebase_search("Wie werden User Stories zu Feature-Spezifikationen?")
-# Findet: product-owner.md, feature-spezifikation.md, artefakt-zusammenhaenge.md
+# Findet: product-owner.md, feature-spezifikation.md, artefakt-zusammenhaenge*.md
 ```
 
 **2. Exakte Suche:**
